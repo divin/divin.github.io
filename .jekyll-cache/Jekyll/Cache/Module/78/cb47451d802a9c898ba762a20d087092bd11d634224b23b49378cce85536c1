@@ -1,7 +1,5 @@
-I"€<div class="page__footer-follow">
+I"<div class="page__footer-follow">
   <ul class="social-icons">
-    
-      <li><strong>Follow:</strong></li>
     
 
     
@@ -10,6 +8,12 @@
           <li><a href="https://github.com/divin" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
         
       
+        
+          <li><a href="https://divinism.itch.io" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-itch-io" aria-hidden="true"></i> Itch.io</a></li>
+        
+      
     
   </ul>
-</div><div class="page__footer-copyright">&copy; 2020 Divin </div>:ET
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Divinism </div>:ET

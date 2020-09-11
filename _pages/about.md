@@ -4,4 +4,4 @@ layout: single
 permalink: /about/
 ---
 
-Hello, my name is Divin.
+Hello there! I'm Divin, a Physics student from South Germany.

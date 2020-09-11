@@ -1,42 +1,20 @@
 # Site Settings
-minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark"
 
 # Site Settings
 locale                   : "en-GB"
 title                    : "Divinism"
 title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Divin"
+name                     : "Divinism"
 description              : "Still under construction!"
 url                      : "https://divin.github.io"
-teaser                   : "/assets/images/default_teaser.jpg"
+teaser                   : # "/assets/images/default_teaser.jpg"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 words_per_minute         : 200
-comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
-  disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    # https://developers.facebook.com/docs/plugins/comments
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-  utterances:
-    theme                : # "github-light" (default), "github-dark"
-    issue_term           : # "pathname" (default)
-  staticman:
-    branch               : # "master"
-    endpoint             : # "https://{your Staticman v3 API}/v3/entry/github/"
-reCaptcha:
-  siteKey                :
-  secret                 :
-atom_feed:
-  path                   : # blank (default) uses feed.xml
 search                   : true # true, false (default)
-search_full_content      : # true, false (default)
+search_full_content      : true
 search_provider          : lunr # lunr (default), algolia, google
 
 # Analytics
@@ -48,8 +26,8 @@ analytics:
 author:
   name             : "Divin"
   avatar           : "/assets/images/bio-photo.jpeg"
-  bio              : "Just a German dude creating things."
-  location         : "Germany"
+  bio              : "Just a dude creating things."
+  location         : "Somewhere, Germany"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -64,6 +42,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/divin"
+    - label: "Itch.io"
+      icon: "fab fa-fw fa-itch-io"
+      url: "https://divinism.itch.io"
 
 
 # Reading Files
@@ -95,8 +76,6 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
 keep_files:
   - .git
   - .svn
@@ -191,10 +170,10 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
-      share: #true
       related: true
       mathjax: true
+      show_date: true
+
   # _pages
   - scope:
       path: "_pages"

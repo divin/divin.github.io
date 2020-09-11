@@ -1,0 +1,13 @@
+I"¢<p>You can find all my posts here sorted by:</p>
+
+<ul>
+  <li>
+    <h3 id="categories-"><a href="/categories">Categories</a> <i class="fas fa-fw fa-tags" aria-hidden="false"></i></h3>
+  </li>
+  <li>
+    <h3 id="tags-"><a href="/tags">Tags</a> <i class="fas fa-fw fa-clipboard-list" aria-hidden="true"></i></h3>
+  </li>
+</ul>
+
+<p>have fun digging this archive <i class="fas fa-fw fa-archive" aria-hidden="true"></i></p>
+:ET

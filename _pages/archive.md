@@ -6,10 +6,4 @@ permalink: /archive/
 author_profile: true
 ---
 
-You can find all my posts here sorted by:
-
-* ### [Categories](/categories) <i class="fas fa-fw fa-tags" aria-hidden="false"></i>
-* ### [Tags](/tags) <i class="fas fa-fw fa-tags" aria-hidden="true"></i>
-
-
-have fun digging this archive <i class="fas fa-fw fa-archive" aria-hidden="true"></i>
+You can find all my posts here sorted by <i class="fas fa-fw fa-list-ul" aria-hidden="true"></i> [Categories](/categories) or by <i class="fas fa-fw fa-tags" aria-hidden="true"></i> [Tags](/tags).
