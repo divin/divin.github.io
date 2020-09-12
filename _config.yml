@@ -35,6 +35,9 @@ author:
     - label: "Itch.io"
       icon: "fab fa-fw fa-itch-io"
       url: "https://divinism.itch.io"
+    - label: "Youtube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/channel/UCD3Wgy3Esgda2JRw74WSF1Q/featured?view_as=subscriber"
 
 # Site Footer
 footer:
@@ -45,6 +48,9 @@ footer:
     - label: "Itch.io"
       icon: "fab fa-fw fa-itch-io"
       url: "https://divinism.itch.io"
+    - label: "Youtube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/channel/UCD3Wgy3Esgda2JRw74WSF1Q/featured?view_as=subscriber"
 
 
 # Reading Files
