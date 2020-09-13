@@ -1,0 +1,14 @@
+I"A<ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#project-settings">Project settings</a></li>
+  <li><a href="#creating-the-paper-scene">Creating the paper scene</a>
+    <ul>
+      <li><a href="#set-variabels">Set variabels</a></li>
+      <li><a href="#setter-function">Setter function</a></li>
+      <li><a href="#make-drawing-possible">Make drawing possible</a></li>
+      <li><a href="#_ready-and-_process">_ready and _process</a></li>
+    </ul>
+  </li>
+  <li><a href="#creating-the-main-scene">Creating the main scene</a></li>
+</ul>
+:ET

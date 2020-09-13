@@ -1,0 +1,21 @@
+I"`<h1 id="introduction">Introduction</h1>
+
+<p>In this tutorial I’ll show you how to make a drawable and draggable paper in Godot. The result will look like this:</p>
+
+<p><img src="/assets/images/posts/tutorial_1/result.gif" alt="Result" /></p>
+
+<h1 id="editor-setup">Editor Setup</h1>
+
+<p>The only changes I did to the project settings were made in under <em>Display/Window</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Width = 320
+Height = 180
+...
+Test Width = 1280
+Test Height = 720
+...
+Mode = 2d
+Aspect = expand
+</code></pre></div></div>
+
+:ET

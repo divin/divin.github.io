@@ -1,0 +1,16 @@
+I"Ö<ul class="toc__menu">
+  <li><a href="#1-introduction">1. Introduction</a></li>
+  <li><a href="#project-settings">Project settings</a></li>
+  <li><a href="#2-creating-the-paper-scene">2. Creating the paper scene</a>
+    <ul>
+      <li><a href="#21-set-variables">2.1 Set variables</a></li>
+      <li><a href="#22-setter-function">2.2 Setter function</a></li>
+      <li><a href="#23-make-drawing-possible">2.3 Make drawing possible</a></li>
+      <li><a href="#24-get-ready-and-process">2.4 Get ready and process</a></li>
+      <li><a href="#25-draw">2.5 Draw</a></li>
+      <li><a href="#26-dragging">2.6 Dragging</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-creating-the-main-scene">3. Creating the main scene</a></li>
+</ul>
+:ET

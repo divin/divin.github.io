@@ -1,1 +1,195 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-13T15:04:50+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Divinism</title><subtitle>Still under construction!</subtitle><author><name>Divin</name></author></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-13T21:00:46+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Divinism</title><subtitle>Still under construction!</subtitle><author><name>Divin</name></author><entry><title type="html">Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot</title><link href="http://localhost:4000/tutorials/godot-tutorial-1/" rel="alternate" type="text/html" title="Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot" /><published>2020-09-13T00:00:00+02:00</published><updated>2020-09-13T00:00:00+02:00</updated><id>http://localhost:4000/tutorials/godot-tutorial-1</id><content type="html" xml:base="http://localhost:4000/tutorials/godot-tutorial-1/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+
+&lt;p&gt;In this tutorial I’ll show you how to make a drawable and draggable paper in Godot. The result will look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorial_1/result.gif&quot; alt=&quot;Result&quot; title=&quot;Result&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This tutorial is more aimed for people with a bit of knowledge in Godot and GDScript.
+Download links for the source code are on my GitHub (or scroll down) :)&lt;/p&gt;
+
+&lt;h1 id=&quot;project-settings&quot;&gt;Project settings&lt;/h1&gt;
+
+&lt;p&gt;The only changes I did to the project settings were made under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Display/Window&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;320&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;180&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1280&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;720&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Aspect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;creating-the-paper-scene&quot;&gt;Creating the paper scene&lt;/h1&gt;
+
+&lt;p&gt;We will start with the interesting part, the paper itself. We make a new scene, use a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TextureRect&lt;/code&gt; as our root node and name it “Paper”. I didn’t changed any settings in the inspector.
+Depending on your aim you want to add now a texture to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TextureRect&lt;/code&gt; or later in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Main&lt;/code&gt; scene.&lt;/p&gt;
+
+&lt;h2 id=&quot;set-variables&quot;&gt;Set variables&lt;/h2&gt;
+
+&lt;p&gt;Next, we attach a script to it. I usually like to give the script a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class_name&lt;/code&gt;, the name of the script itself (in our case &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt;). Let’s define some variables:&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class_name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Paper&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TextureRect&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Bool to check if pen is selected&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pen_selected&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Drawing color of the pen&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Black&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Saves the Position if the Paper is being dragged&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drag_position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZERO&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Save the previouse Mouse position&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;previous_mouse_position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZERO&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Create an Node2D for the pen when ready&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;onready&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pen&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node2D&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node2D&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Most of them are self-explanatory (or explained by the comments), the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pen&lt;/code&gt; variable, which is an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Node2D&lt;/code&gt;, is used to create our “pen”. We will call the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;draw&lt;/code&gt; method from this Node to do the drawing.&lt;/p&gt;
+
+&lt;h2 id=&quot;setter-function&quot;&gt;Setter function&lt;/h2&gt;
+
+&lt;p&gt;We also need a function to set our variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pen_selected&lt;/code&gt; from outside the script:&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Setter function for pen_selected&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set_pen_selected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_selected&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen_selected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_selected&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;make-drawing-possible&quot;&gt;Make drawing possible&lt;/h2&gt;
+
+&lt;p&gt;Now is time to make the drawing possible&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;make_drawing_possible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Create Viewport to render the drawing&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_rect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Get the size of the TextureRect&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rect&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Set size of viewport to the size of TextureRect&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;USAGE_2D&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Render Mode&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;render_target_clear_mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CLEAR_MODE_ONLY_NEXT_FRAME&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Works better than CLEAR_MODE_NEVER&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;render_target_v_flip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# OpenGL flips render target so we have to flip it again&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transparent_bg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Set Background transparent so we see the drawing&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_child&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add the pen as child to the Viewport&lt;/span&gt;
+
+  &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;draw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;_on_draw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Connect _on_draw with the draw method from pen&lt;/span&gt;
+  &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_child&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add viewport as child&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;# Use a sprite to display the result texture&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;viewport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_texture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Which is transparent&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TextureRect&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Make a canvas (also TextureRect)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_texture&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Set texture&lt;/span&gt;
+  &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_child&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Add canvas&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I’ve commented the code as good as possible to get an understanding what is happening. Credit goes to a user called “Zylann” from this &lt;a href=&quot;https://godotengine.org/qa/24621/painting-game-persist-drawing&quot;&gt;post&lt;/a&gt;. I had to change some bits to suit my needs.&lt;/p&gt;
+
+&lt;p&gt;Basically we create an new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Viewport&lt;/code&gt; to render the drawing (with the same size as our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt;) and add our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pen&lt;/code&gt; as child. We connect the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_on_draw&lt;/code&gt; method (which we will define in a bit) to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;draw&lt;/code&gt; method of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pen&lt;/code&gt;. After that we add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Viewport&lt;/code&gt; as child to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt;, create another &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TextureRect&lt;/code&gt; which suits us as canvas.&lt;/p&gt;
+
+&lt;h2 id=&quot;get-ready-and-process&quot;&gt;Get ready and process&lt;/h2&gt;
+
+&lt;p&gt;The next step is simple, we call our monstrosity of function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;make_drawing_possible&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_ready&lt;/code&gt; and update the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pen&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_process&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;make_signature_possible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_delta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;draw&quot;&gt;Draw&lt;/h2&gt;
+
+&lt;p&gt;Now it’s time to define &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_on_draw&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_on_draw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen_selected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mouse_pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_local_mouse_position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Get local mouse position&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_mouse_button_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BUTTON_LEFT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+      &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;draw_line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mouse_pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;previous_mouse_position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Finally draw something&lt;/span&gt;
+    &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;previous_mouse_position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mouse_pos&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Update previous mouse position&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pen_selected == true&lt;/code&gt; we get the mouse position and if we also press the left mouse button we start drawing. Before we return we update the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;previous_mouse_position&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;dragging&quot;&gt;Dragging&lt;/h2&gt;
+
+&lt;p&gt;Now to make the paper also draggable we select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt; (the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TextureRect&lt;/code&gt;) in the scene view and click at the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Node&lt;/code&gt; tab (usually next to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Inspector&lt;/code&gt; tab). Here we want to connect the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gui_input(event : InputEvent)&lt;/code&gt; with our script. A function should be automatically generated in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper.gd&lt;/code&gt; once connected. The name will be differ depending how you named the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TextureRect&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_on_Paper_gui_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InputEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen_selected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InputEventMouseButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;drag_position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_global_mouse_position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rect_global_position&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;drag_position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZERO&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InputEventMouseMotion&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;drag_position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Vector2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZERO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rect_global_position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_global_mouse_position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;drag_position&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If we didn’t select the pen and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InputEvent&lt;/code&gt; recognized an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;event&lt;/code&gt; of type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InputEventMouseButton&lt;/code&gt; (we clicked a mouse button) and is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pressed&lt;/code&gt; we want to update the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;drag_position&lt;/code&gt;. Otherwise we want to set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;drag_position&lt;/code&gt; to a zero vector. If there is an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;event&lt;/code&gt; type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InputEventMouseMotion&lt;/code&gt; (we moved the mouse) and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;drag_position&lt;/code&gt; is not a zero vector we want to update the position of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TextureRect&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;creating-the-main-scene&quot;&gt;Creating the main scene&lt;/h1&gt;
+
+&lt;p&gt;Now we getting closer to the finish. We make now our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Main&lt;/code&gt; scene. Simply by creating an new scene, choose a basic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Node2D&lt;/code&gt; as root node and name it “Main”. Before we start programming we drag and drop the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt; scene inside our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Main&lt;/code&gt; scene.&lt;/p&gt;
+
+&lt;h2 id=&quot;set-variables-1&quot;&gt;Set variables&lt;/h2&gt;
+
+&lt;p&gt;Similar to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt; scene we create some variables. A variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;paper&lt;/code&gt; which refers to the just added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt; scene and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pen_selected&lt;/code&gt; which is the same as we used in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper.gd&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class_name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Main&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node2D&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Grab the Paper when ready&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;onready&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paper&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Paper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Paper&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Bool to store if pen is selected&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pen_selected&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;get-input&quot;&gt;Get input&lt;/h2&gt;
+
+&lt;p&gt;We now want to be able to switch between dragging and drawing. This is done by a simple key press (in this case “A”).&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Bool to check if the button is just pressed (not needed if you assigned a action key)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;just_pressed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_echo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Check if the &quot;A&quot; button was just pressed&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;is_key_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;KEY_A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;just_pressed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select_pen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If the “A” key is just pressed, we want to call a method &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;select_pen&lt;/code&gt; which communicates between the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Main.gd&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper.gd&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;select-the-pen&quot;&gt;Select the pen&lt;/h2&gt;
+
+&lt;p&gt;The last step is to set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pen_selected&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper.gd&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;select_pen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Function which selectes the pen&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Negate pen_selected&lt;/span&gt;
+  &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen_selected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen_selected&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Set pen_selected from the paper&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;paper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_pen_selected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pen_selected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now you should be able to draw on the paper :)&lt;/p&gt;
+
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;If you followed this tutorial correctly, you should be able to drag a paper and also draw on it. Based on this you can expand this mechanic for all kinds of application. I hope you enjoyed it!&lt;/p&gt;
+
+&lt;p&gt;I’m making a little game based on this mechanic, I’ll post other tutorials where we expand this idea a bit further. So stay tuned! :)&lt;/p&gt;
+
+&lt;h1 id=&quot;download&quot;&gt;Download&lt;/h1&gt;
+
+&lt;p&gt;You can find the the source code for this tutorial and all upcoming tutorials &lt;a href=&quot;https://github.com/divin/Godot-Tutorials&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content><author><name>Divin</name></author><category term="Tutorials" /><category term="Godot" /><summary type="html">We make a drawable and draggable paper in Godot.</summary></entry></feed>

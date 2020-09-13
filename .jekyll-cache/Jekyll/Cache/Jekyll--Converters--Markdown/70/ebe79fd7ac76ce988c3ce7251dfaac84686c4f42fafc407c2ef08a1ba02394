@@ -1,0 +1,77 @@
+I"8	<h1 id="introduction">Introduction</h1>
+
+<p>In this tutorial I’ll show you how to make a drawable and draggable paper in Godot. The result will look like this:</p>
+
+<p><img src="/assets/images/posts/tutorial_1/result.gif" alt="Result" /></p>
+
+<p>This tutorial is more aimed for people with a bit of knowledge in Godot.</p>
+
+<h1 id="project-settings">Project settings</h1>
+
+<p>The only changes I did to the project settings were made under <em>Display/Window</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Width = 320
+Height = 180
+...
+Test Width = 1280
+Test Height = 720
+...
+Mode = 2d
+Aspect = expand
+</code></pre></div></div>
+
+<h1 id="creating-the-paper-scene">Creating the paper scene</h1>
+
+<p>We will start with the interesting part, the paper itself.</p>
+
+<h1 id="creating-the-main-scene">Creating the main scene</h1>
+
+<p>First we create the main scene. We choose as our root node a 2D scene and call it “Main”. After that we attach a script to it and call it also “Main”.</p>
+
+<p>Here is the complete <code class="language-plaintext highlighter-rouge">Main.gd</code>:</p>
+
+<blockquote>
+  <p>!
+```
+class_name Main
+extends Node2D</p>
+</blockquote>
+
+<h1 id="grab-the-paper-when-ready">Grab the Paper when ready</h1>
+<p>onready var paper : Paper = $Paper</p>
+
+<h1 id="bool-to-store-if-pen-is-selected">Bool to store if pen is selected</h1>
+<p>var pen_selected : bool = false</p>
+
+<p>func _input(event) -&gt; void:</p>
+
+<p># Bool to check if the button is just pressed (not needed if you assigned an action key)
+  var just_pressed : bool = event.is_pressed() and not event.is_echo()</p>
+
+<p># Check if the “A” button was just pressed
+  if Input.is_key_pressed(KEY_A) and just_pressed:
+    self.select_pen()</p>
+
+<p>func select_pen() -&gt; void:
+  # Function which selectes the pen</p>
+
+<p># Negate pen_selected
+  self.pen_selected = not self.pen_selected</p>
+
+<p># Set pen_selected from the paper
+  paper.set_pen_selected(self.pen_selected)
+``</p>
+
+<p>Next we want to create the paper.</p>
+
+<hr />
+<p><strong>Sidenote</strong></p>
+
+<p>My folder structure looks usually like this:</p>
+
+<h2><img src="/assets/images/posts/tutorial_1/folder_structure.png" alt="Folder Structure" /></h2>
+
+<h1 id="creating-the-paper">Creating the paper</h1>
+
+<p>Now we come to the interesting part,</p>
+:ET
