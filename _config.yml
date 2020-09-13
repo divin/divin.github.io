@@ -41,6 +41,9 @@ author:
     - label: "SoundCloud"
       icon: "fab fa-fw fa-soundcloud"
       url: "https://soundcloud.com/user-470717205"
+    - label: "Reddit"
+      icon: "fab fa-fw fa-reddit"
+      url: "https://www.reddit.com/user/Divinism_"
 
 # Site Footer
 footer:
@@ -57,6 +60,9 @@ footer:
     - label: "SoundCloud"
       icon: "fab fa-fw fa-soundcloud"
       url: "https://soundcloud.com/user-470717205"
+    - label: "Reddit"
+      icon: "fab fa-fw fa-reddit"
+      url: "https://www.reddit.com/user/Divinism_"
 
 
 # Reading Files
