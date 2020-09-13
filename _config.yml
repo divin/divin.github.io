@@ -29,7 +29,7 @@ author:
   bio              : "Just a dude creating things."
   location         : "Somewhere, Germany"
   links:
-     - label: "Itch.io"
+    - label: "Itch.io"
       icon: "fab fa-fw fa-itch-io"
       url: "https://divinism.itch.io"
     - label: "GitHub"
