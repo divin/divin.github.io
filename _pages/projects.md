@@ -6,6 +6,7 @@ toc_sticky: true
 toc_label: "Projects"
 permalink: /projects/
 author_profile: true
+last_modified_at: 2020-09-14
 ---
 
 Here are my list of projects I'm working on:
@@ -25,5 +26,3 @@ As soon as I've something showable I'll update this post!
 {% endcapture %}
 
 <div class="notice"> {{ project-1 | markdownify }} </div>
-
-Updated: 13.09.2020

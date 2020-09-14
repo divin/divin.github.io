@@ -44,9 +44,6 @@ author:
     - label: "SoundCloud"
       icon: "fab fa-fw fa-soundcloud"
       url: "https://soundcloud.com/user-470717205"
-    - label: "Support via PayPal"
-      icon: "fab fa-fw fa-paypal"
-      url: "https://www.paypal.me/divinism"
 
 # Site Footer
 footer:
