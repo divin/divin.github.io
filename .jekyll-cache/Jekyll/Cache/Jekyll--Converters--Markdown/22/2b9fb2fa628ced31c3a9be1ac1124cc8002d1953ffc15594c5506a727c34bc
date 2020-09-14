@@ -1,0 +1,24 @@
+I"»<ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#project-settings">Project settings</a></li>
+  <li><a href="#creating-the-paper-scene">Creating the paper scene</a>
+    <ul>
+      <li><a href="#set-variables">Set variables</a></li>
+      <li><a href="#setter-function">Setter function</a></li>
+      <li><a href="#make-drawing-possible">Make drawing possible</a></li>
+      <li><a href="#get-ready-and-process">Get ready and process</a></li>
+      <li><a href="#draw">Draw</a></li>
+      <li><a href="#dragging">Dragging</a></li>
+    </ul>
+  </li>
+  <li><a href="#creating-the-main-scene">Creating the main scene</a>
+    <ul>
+      <li><a href="#set-variables-1">Set variables</a></li>
+      <li><a href="#get-input">Get input</a></li>
+      <li><a href="#select-the-pen">Select the pen</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+  <li><a href="#download-">Download </a></li>
+</ul>
+:ET

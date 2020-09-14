@@ -1,24 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-13T21:00:46+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Divinism</title><subtitle>Still under construction!</subtitle><author><name>Divin</name></author><entry><title type="html">Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot</title><link href="http://localhost:4000/tutorials/godot-tutorial-1/" rel="alternate" type="text/html" title="Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot" /><published>2020-09-13T00:00:00+02:00</published><updated>2020-09-13T00:00:00+02:00</updated><id>http://localhost:4000/tutorials/godot-tutorial-1</id><content type="html" xml:base="http://localhost:4000/tutorials/godot-tutorial-1/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-14T11:59:00+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Divinism</title><subtitle>My personal website!</subtitle><author><name>Divin</name></author><entry><title type="html">Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot</title><link href="http://localhost:4000/tutorials/godot-tutorial-1/" rel="alternate" type="text/html" title="Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot" /><published>2020-09-13T00:00:00+02:00</published><updated>2020-09-13T00:00:00+02:00</updated><id>http://localhost:4000/tutorials/godot-tutorial-1</id><content type="html" xml:base="http://localhost:4000/tutorials/godot-tutorial-1/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;p&gt;In this tutorial I’ll show you how to make a drawable and draggable paper in Godot. The result will look like this:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/posts/tutorial_1/result.gif&quot; alt=&quot;Result&quot; title=&quot;Result&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This tutorial is more aimed for people with a bit of knowledge in Godot and GDScript.
-Download links for the source code are on my GitHub (or scroll down) :)&lt;/p&gt;
+I like to use a bit more Object Oriented Programming (OOP) style and usually try to define the variables and methods correctly by limiting
+the data type (for example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;var foo : String = &quot;bar&quot;&lt;/code&gt;). This is helpful to prevent misuse of variables/methods and make bug fixing a bit easier in my opinion.&lt;/p&gt;
+
+&lt;p&gt;Download links for the source code are on my GitHub (or visit the &lt;a href=&quot;#download&quot;&gt;Download section&lt;/a&gt;) :)&lt;/p&gt;
 
 &lt;h1 id=&quot;project-settings&quot;&gt;Project settings&lt;/h1&gt;
 
 &lt;p&gt;The only changes I did to the project settings were made under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Display/Window&lt;/code&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;language-gdscript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;320&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;180&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1280&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;720&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Aspect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expand&lt;/span&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Width = 320
+Height = 180
+...
+Test Width = 1280
+Test Height = 720
+...
+Mode = 2d
+Aspect = expand
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;creating-the-paper-scene&quot;&gt;Creating the paper scene&lt;/h1&gt;
@@ -190,6 +193,6 @@ Depending on your aim you want to add now a texture to the &lt;code class=&quot;
 
 &lt;p&gt;I’m making a little game based on this mechanic, I’ll post other tutorials where we expand this idea a bit further. So stay tuned! :)&lt;/p&gt;
 
-&lt;h1 id=&quot;download&quot;&gt;Download&lt;/h1&gt;
+&lt;h1 id=&quot;download-&quot;&gt;Download &lt;a name=&quot;download&quot;&gt;&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;You can find the the source code for this tutorial and all upcoming tutorials &lt;a href=&quot;https://github.com/divin/Godot-Tutorials&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content><author><name>Divin</name></author><category term="Tutorials" /><category term="Godot" /><summary type="html">We make a drawable and draggable paper in Godot.</summary></entry></feed>
+&lt;p&gt;You can find the the source code for this tutorial and all upcoming tutorials &lt;a href=&quot;https://github.com/divin/Godot-Tutorials&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Divin</name></author><category term="Tutorials" /><category term="Godot" /><category term="Tutorial" /><category term="Taikun" /><summary type="html">We make a drawable and draggable paper in Godot.</summary></entry></feed>

@@ -7,6 +7,8 @@ categories:
   - Tutorials
 tags:
   - Godot
+  - Tutorial
+  - Taikun
 excerpt: "We make a drawable and draggable paper in Godot."
 ---
 
@@ -17,13 +19,16 @@ In this tutorial I'll show you how to make a drawable and draggable paper in God
 ![Result](/assets/images/posts/tutorial_1/result.gif "Result")
 
 This tutorial is more aimed for people with a bit of knowledge in Godot and GDScript.
-Download links for the source code are on my GitHub (or scroll down) :)
+I like to use a bit more Object Oriented Programming (OOP) style and usually try to define the variables and methods correctly by limiting
+the data type (for example `var foo : String = "bar"`). This is helpful to prevent misuse of variables/methods and make bug fixing a bit easier in my opinion.  
+
+Download links for the source code are on my GitHub (or visit the [Download section](#download)) :)
 
 # Project settings
 
 The only changes I did to the project settings were made under `Display/Window`:
 
-```gdscript
+```
 Width = 320
 Height = 180
 ...
@@ -213,6 +218,6 @@ If you followed this tutorial correctly, you should be able to drag a paper and 
 
 I'm making a little game based on this mechanic, I'll post other tutorials where we expand this idea a bit further. So stay tuned! :)
 
-# Download
+# Download <a name="download"></a>
 
-You can find the the source code for this tutorial and all upcoming tutorials [here](https://github.com/divin/Godot-Tutorials)
+You can find the the source code for this tutorial and all upcoming tutorials [here](https://github.com/divin/Godot-Tutorials).
