@@ -9,4 +9,3 @@ I did some minor changes to the theme to suit my needs. Feel free to download th
 ## Feel free to buy me a Green Tea :relaxed:
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y626UXL)
-[![Support via PayPal](https://cdn.jsdelivr.net/gh/twolfson/paypal-github-button@1.0.0/dist/button.svg)](https://paypal.me/divinism)
