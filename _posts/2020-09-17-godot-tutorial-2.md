@@ -123,7 +123,7 @@ func _process(_delta) -> void:
 
 ## Make drawing possible
 
-To make drawing possible we use the same two methods (`make_drawing_possible` and `_on_draw`) as in my previous tutorial. For more details see [here](https://divin.github.io/tutorials/godot-tutorial-1/#make-drawing-possible).
+To make drawing possible we use the same two methods (`make_drawing_possible` and `_on_draw`) as in my previous tutorial. For more details see [here](https://divin.github.io/tutorials/godot-tutorial-1/#make-drawing-possible) and [here](https://divin.github.io/tutorials/godot-tutorial-1/#draw).
 
 
 ```gdscript
@@ -154,7 +154,6 @@ func _on_draw() -> void:
 	var mouse_pos : Vector2 = get_local_mouse_position()
 	if self.drawing:
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
-			Input.set_custom_mouse_cursor(draw_mouse) # Change mouse cursor
 			self.pen.draw_line(mouse_pos, self.previous_mouse_position, self.color_black)
 	self.previous_mouse_position = mouse_pos # Update previouse position
 ```
@@ -234,7 +233,6 @@ In essence these methods only check if we are inside the areas and set the boole
 func drag_paper(point : Vector2) -> void:
 	self.dragging = is_point_in_area(point, drag_area_name) # Check if mouse is in drag area
 	if self.dragging:
-		Input.set_custom_mouse_cursor(drag_mouse) # Set mosue
 		self.drag_position = self.get_global_mouse_position() - self.rect_global_position # Update drag position
 	else:
 		self.drag_position = Vector2.ZERO # Set drag position to zero vector
