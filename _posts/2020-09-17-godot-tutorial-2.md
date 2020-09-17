@@ -114,11 +114,11 @@ The `_process` method should update our `pen` and also our mouse cursor. We get 
 
 ```gdscript
 func _ready() -> void:
-	self.make_drawing_possible()
+ self.make_drawing_possible()
 	
 func _process(_delta) -> void:
-	self.pen.update()
-	self.update_mouse()
+ self.pen.update()
+ self.update_mouse()
 ```
 
 ## Make drawing possible
@@ -128,34 +128,34 @@ To make drawing possible we use the same two methods (`make_drawing_possible` an
 
 ```gdscript
 func make_drawing_possible() -> void:
-	# Create Viewport to render the drawing
-	var viewport : Viewport = Viewport.new()
-	var rect : Rect2 = self.get_rect()
-	viewport.size = rect.size
-	viewport.usage = Viewport.USAGE_2D # Render Mode
-	#viewport.render_target_clear_mode = Viewport.CLEAR_MODE_ONLY_NEXT_FRAME # Never Clear
-	viewport.render_target_clear_mode = Viewport.CLEAR_MODE_ONLY_NEXT_FRAME # Works better!
-	viewport.render_target_v_flip = true # OpenGL flips render target we have to flip it again
-	viewport.transparent_bg = true # Set Background transparent so we see the drawing
-	viewport.add_child(self.pen) # Add the pen as child to viewport
-	var error = self.pen.connect("draw", self, "_on_draw") # Connect _on_draw with the draw method from pen
-	if error != OK: # If we get an error
-		printerr("Couldn't connect Pen. Error Code: ", error)
-	self.add_child(viewport) # Add viewport as child
-	
-	# Use a sprite to display the result texture
-	var rt : Texture = viewport.get_texture()
-	var board : TextureRect = TextureRect.new()
-	board.set_texture(rt)
-	self.add_child(board)
+ # Create Viewport to render the drawing
+ var viewport : Viewport = Viewport.new()
+ var rect : Rect2 = self.get_rect()
+ viewport.size = rect.size
+ viewport.usage = Viewport.USAGE_2D # Render Mode
+ #viewport.render_target_clear_mode = Viewport.CLEAR_MODE_ONLY_NEXT_FRAME # Never Clear
+ viewport.render_target_clear_mode = Viewport.CLEAR_MODE_ONLY_NEXT_FRAME # Works better!
+ viewport.render_target_v_flip = true # OpenGL flips render target we have to flip it again
+ viewport.transparent_bg = true # Set Background transparent so we see the drawing
+ viewport.add_child(self.pen) # Add the pen as child to viewport
+ var error = self.pen.connect("draw", self, "_on_draw") # Connect _on_draw with the draw method from pen
+ if error != OK: # If we get an error
+  printerr("Couldn't connect Pen. Error Code: ", error)
+ self.add_child(viewport) # Add viewport as child
+
+ # Use a sprite to display the result texture
+ var rt : Texture = viewport.get_texture()
+ var board : TextureRect = TextureRect.new()
+ board.set_texture(rt)
+ self.add_child(board)
 
 # Draw Method
 func _on_draw() -> void:
-	var mouse_pos : Vector2 = get_local_mouse_position()
-	if self.drawing:
-		if Input.is_mouse_button_pressed(BUTTON_LEFT):
-			self.pen.draw_line(mouse_pos, self.previous_mouse_position, self.color_black)
-	self.previous_mouse_position = mouse_pos # Update previouse position
+ var mouse_pos : Vector2 = get_local_mouse_position()
+ if self.drawing:
+  if Input.is_mouse_button_pressed(BUTTON_LEFT):
+   self.pen.draw_line(mouse_pos, self.previous_mouse_position, self.color_black)
+ self.previous_mouse_position = mouse_pos # Update previouse position
 ```
 
 ## Change mouse cursor
@@ -164,19 +164,19 @@ To change the mouse cursors we need the method `update_mouse`. This method basic
 
 ```gdscript
 func update_mouse():
-	var mouse_pos : Vector2 = self.get_global_mouse_position() # Get mosue position
-	var on_drag : bool = self.is_point_in_area(mouse_pos, drag_area_name) # Check if mouse is in drag area
-	var on_draw : bool = self.is_point_in_area(mouse_pos, draw_area_name) # Check if mouse is in draw area
-	if on_drag and not Input.is_mouse_button_pressed(BUTTON_LEFT): # If we hover over drag area
-		Input.set_custom_mouse_cursor(on_drag_mouse) # Set mouse cursor
-	elif self.dragging:
-		Input.set_custom_mouse_cursor(drag_mouse) # Set mouse cursor
-	elif on_draw and not Input.is_mouse_button_pressed(BUTTON_LEFT): # If we hover over draw area
-		Input.set_custom_mouse_cursor(on_draw_mouse) # Set mouse cursor
-	elif self.drawing:
-		Input.set_custom_mouse_cursor(draw_mouse)
-	elif not on_drag and not on_draw: # If not over these areas
-		Input.set_custom_mouse_cursor(standard_mouse)
+ var mouse_pos : Vector2 = self.get_global_mouse_position() # Get mosue position
+ var on_drag : bool = self.is_point_in_area(mouse_pos, drag_area_name) # Check if mouse is in drag area
+ var on_draw : bool = self.is_point_in_area(mouse_pos, draw_area_name) # Check if mouse is in draw area
+ if on_drag and not Input.is_mouse_button_pressed(BUTTON_LEFT): # If we hover over drag area
+  Input.set_custom_mouse_cursor(on_drag_mouse) # Set mouse cursor
+ elif self.dragging:
+  Input.set_custom_mouse_cursor(drag_mouse) # Set mouse cursor
+ elif on_draw and not Input.is_mouse_button_pressed(BUTTON_LEFT): # If we hover over draw area
+  Input.set_custom_mouse_cursor(on_draw_mouse) # Set mouse cursor
+ elif self.drawing:
+  Input.set_custom_mouse_cursor(draw_mouse)
+ elif not on_drag and not on_draw: # If not over these areas
+  Input.set_custom_mouse_cursor(standard_mouse)
 ```
 
 ## Are we in the area?
@@ -189,14 +189,14 @@ The method will return an `Array` with all colliders we are intersecting. We jus
 ```gdscript
 # Function which checks if a point (Vector2) is inside an Area2D
 func is_point_in_area(point : Vector2, area_name : String) -> bool:
-	var output : bool = false # Our output, default false
-	var space_state : Physics2DDirectSpaceState = get_world_2d().direct_space_state # Get space state of all items
-	var result : Array = space_state.intersect_point(point, 32, [], 2147483647, true, true) # Check if points intersect with something
-	if result != []: # If we insect with something
-		for item in result: # Go through items in the array
-			if item["collider"].name == area_name: # Check if collider name equals the name we are looking for
-				output = true # set our output to true
-	return output
+ var output : bool = false # Our output, default false
+ var space_state : Physics2DDirectSpaceState = get_world_2d().direct_space_state # Get space state of all items
+ var result : Array = space_state.intersect_point(point, 32, [], 2147483647, true, true) # Check if points intersect with something
+ if result != []: # If we insect with something
+  for item in result: # Go through items in the array
+   if item["collider"].name == area_name: # Check if collider name equals the name we are looking for
+    output = true # set our output to true
+ return output
 ```
 
 ## Dragging
@@ -206,22 +206,22 @@ I have rewritten the code a bit to make it clearer but the idea is the same. The
 
 ```gdscript
 func _on_Paper_gui_input(event):
-	# Check if we pressed a mouse button
-	if event is InputEventMouseButton:
-		# Check if we pressed left mouse button
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			var point : Vector2 = self.get_global_mouse_position() # Get global mouse position
-			# Call methods
-			self.drag_paper(point)
-			self.draw_paper(point)
-		else:
-			# Else set dragging and drawing false
-			self.dragging = false
-			self.drawing = false
-	# Check if we moved the mouse while we drag the paper
-	if event is InputEventMouseMotion and drag_position != Vector2.ZERO and self.dragging:
-		# Set new position
-		self.rect_global_position = self.get_global_mouse_position() - self.drag_position
+ # Check if we pressed a mouse button
+ if event is InputEventMouseButton:
+  # Check if we pressed left mouse button
+  if event.button_index == BUTTON_LEFT and event.pressed:
+   var point : Vector2 = self.get_global_mouse_position() # Get global mouse position
+   # Call methods
+   self.drag_paper(point)
+   self.draw_paper(point)
+  else:
+   # Else set dragging and drawing false
+   self.dragging = false
+   self.drawing = false
+ # Check if we moved the mouse while we drag the paper
+ if event is InputEventMouseMotion and drag_position != Vector2.ZERO and self.dragging:
+  # Set new position
+  self.rect_global_position = self.get_global_mouse_position() - self.drag_position
 ```
 
 ## Drag & Draw
@@ -231,15 +231,15 @@ In essence these methods only check if we are inside the areas and set the boole
 ```gdscript
 # Drag Method which checks if we are dragging the paper
 func drag_paper(point : Vector2) -> void:
-	self.dragging = is_point_in_area(point, drag_area_name) # Check if mouse is in drag area
-	if self.dragging:
-		self.drag_position = self.get_global_mouse_position() - self.rect_global_position # Update drag position
-	else:
-		self.drag_position = Vector2.ZERO # Set drag position to zero vector
+ self.dragging = is_point_in_area(point, drag_area_name) # Check if mouse is in drag area
+ if self.dragging:
+  self.drag_position = self.get_global_mouse_position() - self.rect_global_position # Update drag position
+ else:
+  self.drag_position = Vector2.ZERO # Set drag position to zero vector
 
 # Draw Method which checks if we are drawing on the paper 
 func draw_paper(point : Vector2) -> void:
-	self.drawing = is_point_in_area(point, draw_area_name) # Check if mouse is in draw area
+ self.drawing = is_point_in_area(point, draw_area_name) # Check if mouse is in draw area
 ```
 
 # Conclusion
