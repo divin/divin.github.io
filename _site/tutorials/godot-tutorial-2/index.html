@@ -1,0 +1,829 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.2 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Tutorial 2: Drawable &amp; Draggable Paper In Godot (Improved) | Divinism</title>
+<meta name="description" content="We improve our mechanic from the previous tutorial.">
+
+
+  <meta name="author" content="Divin">
+  
+  <meta property="article:author" content="Divin">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Divinism">
+<meta property="og:title" content="Tutorial 2: Drawable &amp; Draggable Paper In Godot (Improved)">
+<meta property="og:url" content="http://localhost:4000/tutorials/godot-tutorial-2/">
+
+
+  <meta property="og:description" content="We improve our mechanic from the previous tutorial.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-09-17T00:00:00+02:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/tutorials/godot-tutorial-2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Divinism",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Divinism Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+    
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Divinism
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/index.html">Home</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/">Contact</a>
+            </li><li class="masthead__menu-item">
+              <a href="/archive/">Archive</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/bio-photo.jpeg" alt="Divin" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Divin</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Just a dude creating things.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Somewhere, Germany</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://divinism.itch.io" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-itch-io" aria-hidden="true"></i><span class="label">Itch.io</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/divin" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.reddit.com/user/Divinism_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i><span class="label">Reddit</span></a></li>
+          
+        
+          
+            <li><a href="https://www.youtube.com/channel/UCD3Wgy3Esgda2JRw74WSF1Q/featured?view_as=subscriber" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i><span class="label">Youtube</span></a></li>
+          
+        
+          
+            <li><a href="https://soundcloud.com/user-470717205" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-soundcloud" aria-hidden="true"></i><span class="label">SoundCloud</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+
+    </ul>
+    <pre></pre>
+    <script type='text/javascript' src='https://ko-fi.com/widgets/widget_2.js'></script>
+    <script type='text/javascript'>kofiwidget2.init('Support Me', '#262F35', 'Y8Y626UXL');kofiwidget2.draw();</script>
+  </div>
+</div>
+
+   
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tutorial 2: Drawable &amp; Draggable Paper In Godot (Improved)">
+    <meta itemprop="description" content="We improve our mechanic from the previous tutorial.">
+    <meta itemprop="datePublished" content="2020-09-17T00:00:00+02:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Tutorial 2: Drawable &amp; Draggable Paper In Godot (Improved)
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-09-17T00:00:00+02:00">September 17, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Content</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#project-settings">Project Settings</a></li>
+  <li><a href="#creating-the-main-scene">Creating the main scene</a></li>
+  <li><a href="#creating-the-paper-scene">Creating the paper scene</a>
+    <ul>
+      <li><a href="#adding-area2d-objects">Adding Area2D objects</a></li>
+      <li><a href="#set-variables">Set variables</a></li>
+      <li><a href="#ready-and-process">Ready and process</a></li>
+      <li><a href="#make-drawing-possible">Make drawing possible</a></li>
+      <li><a href="#change-mouse-cursor">Change mouse cursor</a></li>
+      <li><a href="#are-we-in-the-area">Are we in the area?</a></li>
+      <li><a href="#dragging">Dragging</a></li>
+      <li><a href="#drag--draw">Drag &amp; Draw</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+  <li><a href="#download-">Download </a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="introduction">Introduction</h1>
+
+<p>Today we are improving our mechanic from <a href="https://divin.github.io/tutorials/godot-tutorial-1/">Tutorial 1</a>. The result will look like this:</p>
+
+<p><img src="/assets/images/posts/tutorial_2/result.gif" alt="Result" title="Result" class="align-center" /></p>
+
+<p>Looks like similar as before, right? Indeed but we got rid of the “A” button to switch between draw and drag mode. Also, we got some fancy mouse cursors which indicates when we are able to drag or draw. Thanks to the guys on the <a href="https://www.reddit.com/r/godot/">Godot subreddit</a>, who gave me feedback on my previous tutorial and <a href="https://kicked-in-teeth.itch.io/grab-hand">Kicked-in-Teeth</a> for the Grab Hand package which I used for the mouse cursor.</p>
+
+<p>Again a little disclaimer:</p>
+
+<p><em>This tutorial is more aimed for people with a bit of knowledge in Godot, GDScript and programming in general.
+I like to use a bit more Object Oriented Programming (OOP) style. Usually I try to define the variables and methods correctly by limiting
+the data type (for example</em> <code class="language-plaintext highlighter-rouge">var foo : String = "bar"</code> <em>). This is helpful to prevent misuse of variables/methods and makes bug fixing a bit easier in my opinion.</em></p>
+
+<p>Download links for the source code are on my GitHub (or visit the <a href="#download">Download section</a>) :)</p>
+
+<h1 id="project-settings">Project Settings</h1>
+
+<p>These are the same as for the <a href="https://divin.github.io/tutorials/godot-tutorial-1/#project-settings">previous tutorial</a>. Please have a look there!</p>
+
+<h1 id="creating-the-main-scene">Creating the main scene</h1>
+
+<p>We start with something simple this time, the main scene. Just create a <code class="language-plaintext highlighter-rouge">Node2D</code>, name it “Main” and we are done. 
+This time we don’t need a script as everything will be handled by the <code class="language-plaintext highlighter-rouge">Paper</code> scene itself. Fancy, right? :)</p>
+
+<h1 id="creating-the-paper-scene">Creating the paper scene</h1>
+
+<p>Now to the interesting part, we create a new scene, select as our root node a <code class="language-plaintext highlighter-rouge">TextureRect</code> and name it “Paper”.</p>
+
+<p><img src="/assets/images/posts/tutorial_2/texture_rect.gif" alt="TextureRect" class="align-center" /></p>
+
+<p>After that we set the texture for our <code class="language-plaintext highlighter-rouge">TextureRect</code>. Next we want to create two <code class="language-plaintext highlighter-rouge">Area2D</code> objects.</p>
+
+<h2 id="adding-area2d-objects">Adding <code class="language-plaintext highlighter-rouge">Area2D</code> objects</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Area2D</code> objects are great to detect collision, we use it to have two different areas on our paper we can distinguish. So, let’s start.</p>
+
+<p>We add the first <code class="language-plaintext highlighter-rouge">Area2D</code> and name it “DragArea”. To this area we add a <code class="language-plaintext highlighter-rouge">CollisionShape2D</code> as child this is our collision area. As shape we choose a Rectangle.
+You should align the <code class="language-plaintext highlighter-rouge">CollisionShape2D</code> to fit the top part of the paper. It should look like this if you’re done:</p>
+
+<p><img src="/assets/images/posts/tutorial_2/first_area.png" alt="area_1" class="align-center" /></p>
+
+<p>For the second <code class="language-plaintext highlighter-rouge">Area2D</code> we do basically the same thing except we name it “DrawArea” and align the <code class="language-plaintext highlighter-rouge">CollisionShape2D</code> to fit the lower part of the paper. 
+When done our paper should look like this:</p>
+
+<p><img src="/assets/images/posts/tutorial_2/second_area.png" alt="area_2" class="align-center" /></p>
+
+<p>For convenience I left a gap between the two areas. You should avoid overlapping areas.</p>
+
+<p><img src="/assets/images/posts/tutorial_2/paper_scene.png" alt="paper" class="align-left" />
+Our scene should look like the picture on the left. We are done for the moment, so let’s add a script to our <code class="language-plaintext highlighter-rouge">Paper</code> and also call it “Paper”.</p>
+
+<h2 id="set-variables">Set variables</h2>
+
+<p>As usual we begin with our script by defining some variables we need later. The <code class="language-plaintext highlighter-rouge">class_name</code> will be “Paper”.
+In essence we need the following:</p>
+
+<ul>
+  <li>a color for our pen, saved in the constant <code class="language-plaintext highlighter-rouge">color_black</code>,</li>
+  <li>some boolean data types which we use to track if we are at the moment dragging or drawing  (<code class="language-plaintext highlighter-rouge">dragging</code> and <code class="language-plaintext highlighter-rouge">drawing</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">Vector2</code> to track the drag and previous mouse position (<code class="language-plaintext highlighter-rouge">drag_position</code> and <code class="language-plaintext highlighter-rouge">previous_mouse_position</code>)</li>
+  <li>an <code class="language-plaintext highlighter-rouge">Node2D</code> which will be used as our pen</li>
+  <li>the name of our areas as strings</li>
+  <li>and last but not least some fancy mouse cursors (thanks to <a href="https://kicked-in-teeth.itch.io/grab-hand">Kicked-in-Teeth</a>)</li>
+</ul>
+
+<div class="language-gdscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class_name</span> <span class="n">Paper</span>
+<span class="k">extends</span> <span class="n">TextureRect</span>
+
+<span class="c1"># Color</span>
+<span class="k">const</span> <span class="n">color_black</span> <span class="p">:</span> <span class="kt">Color</span> <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">)</span> <span class="c1"># Black</span>
+
+<span class="c1"># Bools</span>
+<span class="k">var</span> <span class="n">dragging</span> <span class="p">:</span> <span class="kt">bool</span> <span class="o">=</span> <span class="bp">false</span> <span class="c1"># dragging mode</span>
+<span class="k">var</span> <span class="n">drawing</span> <span class="p">:</span> <span class="kt">bool</span> <span class="o">=</span> <span class="bp">false</span> <span class="c1"># signing mode</span>
+
+<span class="c1"># Vector2</span>
+<span class="k">var</span> <span class="n">drag_position</span> <span class="p">:</span> <span class="kt">Vector2</span> <span class="o">=</span> <span class="kt">Vector2</span><span class="o">.</span><span class="n">ZERO</span> <span class="c1"># drag vector</span>
+<span class="k">var</span> <span class="n">previous_mouse_position</span> <span class="p">:</span> <span class="kt">Vector2</span> <span class="o">=</span> <span class="kt">Vector2</span><span class="o">.</span><span class="n">ZERO</span> <span class="c1"># previouse mouse position vector</span>
+
+<span class="k">onready</span> <span class="k">var</span> <span class="n">pen</span> <span class="p">:</span> <span class="n">Node2D</span> <span class="o">=</span> <span class="n">Node2D</span><span class="o">.</span><span class="n">new</span><span class="p">()</span> <span class="c1"># Create an Node2D for the pen when ready</span>
+
+<span class="c1"># Name of Areas</span>
+<span class="k">var</span> <span class="n">drag_area_name</span> <span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s2">"DragArea"</span> <span class="c1"># Name of the Drag Area</span>
+<span class="k">var</span> <span class="n">draw_area_name</span> <span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s2">"DrawArea"</span> <span class="c1"># Name of the Draw Area</span>
+
+<span class="c1"># Mouse Cursor</span>
+<span class="k">var</span> <span class="n">standard_mouse</span> <span class="o">=</span> <span class="nb">preload</span><span class="p">(</span><span class="s2">"res://assets/Sprites/Mouse_Cursor/hand_01.png"</span><span class="p">)</span> <span class="c1"># Standard Coursor</span>
+
+<span class="k">var</span> <span class="n">on_drag_mouse</span> <span class="o">=</span> <span class="nb">preload</span><span class="p">(</span><span class="s2">"res://assets/Sprites/Mouse_Cursor/hand_02.png"</span><span class="p">)</span> <span class="c1"># Cursor when over Drag Area</span>
+<span class="k">var</span> <span class="n">drag_mouse</span> <span class="o">=</span> <span class="nb">preload</span><span class="p">(</span><span class="s2">"res://assets/Sprites/Mouse_Cursor/hand_06.png"</span><span class="p">)</span> <span class="c1"># Cursor when dragging</span>
+
+<span class="k">var</span> <span class="n">on_draw_mouse</span> <span class="o">=</span> <span class="nb">preload</span><span class="p">(</span><span class="s2">"res://assets/Sprites/Mouse_Cursor/hand_08.png"</span><span class="p">)</span> <span class="c1"># Cursor when over Draw Area</span>
+<span class="k">var</span> <span class="n">draw_mouse</span> <span class="o">=</span> <span class="nb">preload</span><span class="p">(</span><span class="s2">"res://assets/Sprites/Mouse_Cursor/hand_03.png"</span><span class="p">)</span> <span class="c1"># Cursor when drawing</span>
+</code></pre></div></div>
+
+<h2 id="ready-and-process">Ready and process</h2>
+
+<p>In the <code class="language-plaintext highlighter-rouge">_ready</code> method we only call our <code class="language-plaintext highlighter-rouge">make_drawing_possible</code> function which is not really different to the one in the previous tutorial. 
+The <code class="language-plaintext highlighter-rouge">_process</code> method should update our <code class="language-plaintext highlighter-rouge">pen</code> and also our mouse cursor. We get following:</p>
+
+<div class="language-gdscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="nf">_ready</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">void</span><span class="p">:</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">make_drawing_possible</span><span class="p">()</span>
+	
+<span class="k">func</span> <span class="nf">_process</span><span class="p">(</span><span class="n">_delta</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">void</span><span class="p">:</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">pen</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">update_mouse</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="make-drawing-possible">Make drawing possible</h2>
+
+<p>To make drawing possible we use the same method as in my previous tutorial. For more details see <a href="https://divin.github.io/tutorials/godot-tutorial-1/#make-drawing-possible">here</a>.</p>
+
+<div class="language-gdscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="nf">make_drawing_possible</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">void</span><span class="p">:</span>
+	<span class="c1"># Create Viewport to render the drawing</span>
+	<span class="k">var</span> <span class="n">viewport</span> <span class="p">:</span> <span class="n">Viewport</span> <span class="o">=</span> <span class="n">Viewport</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+	<span class="k">var</span> <span class="n">rect</span> <span class="p">:</span> <span class="kt">Rect2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+	<span class="n">viewport</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">size</span>
+	<span class="n">viewport</span><span class="o">.</span><span class="n">usage</span> <span class="o">=</span> <span class="n">Viewport</span><span class="o">.</span><span class="n">USAGE_2D</span> <span class="c1"># Render Mode</span>
+	<span class="c1">#viewport.render_target_clear_mode = Viewport.CLEAR_MODE_ONLY_NEXT_FRAME # Never Clear</span>
+	<span class="n">viewport</span><span class="o">.</span><span class="n">render_target_clear_mode</span> <span class="o">=</span> <span class="n">Viewport</span><span class="o">.</span><span class="n">CLEAR_MODE_ONLY_NEXT_FRAME</span> <span class="c1"># Works better!</span>
+	<span class="n">viewport</span><span class="o">.</span><span class="n">render_target_v_flip</span> <span class="o">=</span> <span class="bp">true</span> <span class="c1"># OpenGL flips render target we have to flip it again</span>
+	<span class="n">viewport</span><span class="o">.</span><span class="n">transparent_bg</span> <span class="o">=</span> <span class="bp">true</span> <span class="c1"># Set Background transparent so we see the drawing</span>
+	<span class="n">viewport</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pen</span><span class="p">)</span> <span class="c1"># Add the pen as child to viewport</span>
+	<span class="k">var</span> <span class="n">error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pen</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"draw"</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="s2">"_on_draw"</span><span class="p">)</span> <span class="c1"># Connect _on_draw with the draw method from pen</span>
+	<span class="k">if</span> <span class="n">error</span> <span class="o">!=</span> <span class="n">OK</span><span class="p">:</span> <span class="c1"># If we get an error</span>
+		<span class="nb">printerr</span><span class="p">(</span><span class="s2">"Couldn't connect Pen. Error Code: "</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">viewport</span><span class="p">)</span> <span class="c1"># Add viewport as child</span>
+	
+	<span class="c1"># Use a sprite to display the result texture</span>
+	<span class="k">var</span> <span class="n">rt</span> <span class="p">:</span> <span class="n">Texture</span> <span class="o">=</span> <span class="n">viewport</span><span class="o">.</span><span class="n">get_texture</span><span class="p">()</span>
+	<span class="k">var</span> <span class="n">board</span> <span class="p">:</span> <span class="n">TextureRect</span> <span class="o">=</span> <span class="n">TextureRect</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+	<span class="n">board</span><span class="o">.</span><span class="n">set_texture</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+
+<span class="c1"># Draw Method</span>
+<span class="k">func</span> <span class="nf">_on_draw</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">void</span><span class="p">:</span>
+	<span class="k">var</span> <span class="n">mouse_pos</span> <span class="p">:</span> <span class="kt">Vector2</span> <span class="o">=</span> <span class="n">get_local_mouse_position</span><span class="p">()</span>
+	<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">drawing</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">Input</span><span class="o">.</span><span class="n">is_mouse_button_pressed</span><span class="p">(</span><span class="n">BUTTON_LEFT</span><span class="p">):</span>
+			<span class="n">Input</span><span class="o">.</span><span class="n">set_custom_mouse_cursor</span><span class="p">(</span><span class="n">draw_mouse</span><span class="p">)</span> <span class="c1"># Change mouse cursor</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">pen</span><span class="o">.</span><span class="n">draw_line</span><span class="p">(</span><span class="n">mouse_pos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_mouse_position</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">color_black</span><span class="p">)</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">previous_mouse_position</span> <span class="o">=</span> <span class="n">mouse_pos</span> <span class="c1"># Update previouse position</span>
+</code></pre></div></div>
+
+<h2 id="change-mouse-cursor">Change mouse cursor</h2>
+
+<p>To change the mouse cursors we need the method <code class="language-plaintext highlighter-rouge">update_mouse</code>. This method basically just checks if we are hovering over the specific area (<code class="language-plaintext highlighter-rouge">DragArea</code> or <code class="language-plaintext highlighter-rouge">DrawArea</code>) by calling the mysterious method <code class="language-plaintext highlighter-rouge">is_point_in_area</code>, which we will discuss in a bit.</p>
+
+<div class="language-gdscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Updat Mouse Method</span>
+<span class="k">func</span> <span class="nf">update_mouse</span><span class="p">():</span>
+	<span class="k">var</span> <span class="n">mouse_pos</span> <span class="p">:</span> <span class="kt">Vector2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_global_mouse_position</span><span class="p">()</span> <span class="c1"># Get mosue position</span>
+	<span class="k">var</span> <span class="n">on_drag</span> <span class="p">:</span> <span class="kt">bool</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_point_in_area</span><span class="p">(</span><span class="n">mouse_pos</span><span class="p">,</span> <span class="n">drag_area_name</span><span class="p">)</span> <span class="c1"># Check if mouse is in drag area</span>
+	<span class="k">var</span> <span class="n">on_draw</span> <span class="p">:</span> <span class="kt">bool</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_point_in_area</span><span class="p">(</span><span class="n">mouse_pos</span><span class="p">,</span> <span class="n">draw_area_name</span><span class="p">)</span> <span class="c1"># Check if mouse is in draw area</span>
+	<span class="k">if</span> <span class="n">on_drag</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">Input</span><span class="o">.</span><span class="n">is_mouse_button_pressed</span><span class="p">(</span><span class="n">BUTTON_LEFT</span><span class="p">):</span> <span class="c1"># If we hover over drag area</span>
+		<span class="n">Input</span><span class="o">.</span><span class="n">set_custom_mouse_cursor</span><span class="p">(</span><span class="n">on_drag_mouse</span><span class="p">)</span> <span class="c1"># Set mouse cursor</span>
+	<span class="k">elif</span> <span class="n">on_draw</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">Input</span><span class="o">.</span><span class="n">is_mouse_button_pressed</span><span class="p">(</span><span class="n">BUTTON_LEFT</span><span class="p">):</span> <span class="c1"># If we hover over draw area</span>
+		<span class="n">Input</span><span class="o">.</span><span class="n">set_custom_mouse_cursor</span><span class="p">(</span><span class="n">on_draw_mouse</span><span class="p">)</span> <span class="c1"># Set mouse cursor</span>
+	<span class="k">elif</span> <span class="ow">not</span> <span class="n">on_drag</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">on_draw</span><span class="p">:</span> <span class="c1"># If not over these areas</span>
+		<span class="n">Input</span><span class="o">.</span><span class="n">set_custom_mouse_cursor</span><span class="p">(</span><span class="n">standard_mouse</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="are-we-in-the-area">Are we in the area?</h2>
+
+<p>One of the important methods in this script is <code class="language-plaintext highlighter-rouge">is_point_in_area</code>. The issue I encounter is that if you are using <code class="language-plaintext highlighter-rouge">TextureRect</code> and a <code class="language-plaintext highlighter-rouge">Signal</code> from it, like <code class="language-plaintext highlighter-rouge">gui_input</code> (which we will use in the next section), all <code class="language-plaintext highlighter-rouge">InputEvent</code>s we be blocked and not passed through to the child objects (at least in Godot 3.2.2). This means, we can’t just use the <code class="language-plaintext highlighter-rouge">Signal</code> <code class="language-plaintext highlighter-rouge">mouse_entered</code> from the <code class="language-plaintext highlighter-rouge">Area2D</code> object to detect if we are inside the area because all input signals will be blocked by the <code class="language-plaintext highlighter-rouge">TextureRect</code> object. The mouse filter option on the <code class="language-plaintext highlighter-rouge">TextureRect</code> is unfortunately not helpful as we also want to drag the paper.</p>
+
+<p>To solve this issue I ended up checking if a point is inside an area by using the <code class="language-plaintext highlighter-rouge">intersect_point</code> method. See the <a href="https://docs.godotengine.org/en/stable/classes/class_physics2ddirectspacestate.html#method-descriptions">Docs</a> for some more information about this. The important bit was to set <code class="language-plaintext highlighter-rouge">collide_with_areas = true</code>.
+The method will return an <code class="language-plaintext highlighter-rouge">Array</code> with all colliders we are intersecting. We just loop through these and check if one of the names in equal to the area we are looking for.</p>
+
+<div class="language-gdscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Function which checks if a point (Vector2) is inside an Area2D</span>
+<span class="k">func</span> <span class="nf">is_point_in_area</span><span class="p">(</span><span class="n">point</span> <span class="p">:</span> <span class="kt">Vector2</span><span class="p">,</span> <span class="n">area_name</span> <span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="p">:</span>
+	<span class="k">var</span> <span class="n">output</span> <span class="p">:</span> <span class="kt">bool</span> <span class="o">=</span> <span class="bp">false</span> <span class="c1"># Our output, default false</span>
+	<span class="k">var</span> <span class="n">space_state</span> <span class="p">:</span> <span class="n">Physics2DDirectSpaceState</span> <span class="o">=</span> <span class="n">get_world_2d</span><span class="p">()</span><span class="o">.</span><span class="n">direct_space_state</span> <span class="c1"># Get space state of all items</span>
+	<span class="k">var</span> <span class="n">result</span> <span class="p">:</span> <span class="kt">Array</span> <span class="o">=</span> <span class="n">space_state</span><span class="o">.</span><span class="n">intersect_point</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="p">[],</span> <span class="mi">2147483647</span><span class="p">,</span> <span class="bp">true</span><span class="p">,</span> <span class="bp">true</span><span class="p">)</span> <span class="c1"># Check if points intersect with something</span>
+	<span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="p">[]:</span> <span class="c1"># If we insect with something</span>
+		<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span> <span class="c1"># Go through items in the array</span>
+			<span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s2">"collider"</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">area_name</span><span class="p">:</span> <span class="c1"># Check if collider name equals the name we are looking for</span>
+				<span class="n">output</span> <span class="o">=</span> <span class="bp">true</span> <span class="c1"># set our output to true</span>
+	<span class="k">return</span> <span class="n">output</span>
+</code></pre></div></div>
+
+<h2 id="dragging">Dragging</h2>
+
+<p>To make dragging possible we use the same method as in our previous tutorial. For more details see <a href="https://divin.github.io/tutorials/godot-tutorial-1/#dragging">here</a>.
+I have rewritten the code a bit to make it clearer but the idea is the same. The only big difference is that we are just getting the position of the mouse once clicked and give this point to two methods <code class="language-plaintext highlighter-rouge">drag_paper</code> and <code class="language-plaintext highlighter-rouge">draw_paper</code>.</p>
+
+<div class="language-gdscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="nf">_on_Paper_gui_input</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+	<span class="c1"># Check if we pressed a mouse button</span>
+	<span class="k">if</span> <span class="n">event</span> <span class="k">is</span> <span class="n">InputEventMouseButton</span><span class="p">:</span>
+		<span class="c1"># Check if we pressed left mouse button</span>
+		<span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button_index</span> <span class="o">==</span> <span class="n">BUTTON_LEFT</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">pressed</span><span class="p">:</span>
+			<span class="k">var</span> <span class="n">point</span> <span class="p">:</span> <span class="kt">Vector2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_global_mouse_position</span><span class="p">()</span> <span class="c1"># Get global mouse position</span>
+			<span class="c1"># Call methods</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">drag_paper</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">draw_paper</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="c1"># Else set dragging and drawing false</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">dragging</span> <span class="o">=</span> <span class="bp">false</span>
+			<span class="bp">self</span><span class="o">.</span><span class="n">drawing</span> <span class="o">=</span> <span class="bp">false</span>
+	<span class="c1"># Check if we moved the mouse while we drag the paper</span>
+	<span class="k">if</span> <span class="n">event</span> <span class="k">is</span> <span class="n">InputEventMouseMotion</span> <span class="ow">and</span> <span class="n">drag_position</span> <span class="o">!=</span> <span class="kt">Vector2</span><span class="o">.</span><span class="n">ZERO</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">dragging</span><span class="p">:</span>
+		<span class="c1"># Set new position</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">rect_global_position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_global_mouse_position</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">drag_position</span>
+</code></pre></div></div>
+
+<h2 id="drag--draw">Drag &amp; Draw</h2>
+
+<p>In essence these methods only check if we are inside the areas and set the boolean data types <code class="language-plaintext highlighter-rouge">dragging</code> and <code class="language-plaintext highlighter-rouge">drawing</code>. The method <code class="language-plaintext highlighter-rouge">drag_paper</code> does also some fancy stuff by updating the <code class="language-plaintext highlighter-rouge">drag_position</code>.</p>
+
+<div class="language-gdscript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Drag Method which checks if we are dragging the paper</span>
+<span class="k">func</span> <span class="nf">drag_paper</span><span class="p">(</span><span class="n">point</span> <span class="p">:</span> <span class="kt">Vector2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">void</span><span class="p">:</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">dragging</span> <span class="o">=</span> <span class="n">is_point_in_area</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">drag_area_name</span><span class="p">)</span> <span class="c1"># Check if mouse is in drag area</span>
+	<span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dragging</span><span class="p">:</span>
+		<span class="n">Input</span><span class="o">.</span><span class="n">set_custom_mouse_cursor</span><span class="p">(</span><span class="n">drag_mouse</span><span class="p">)</span> <span class="c1"># Set mosue</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">drag_position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_global_mouse_position</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect_global_position</span> <span class="c1"># Update drag position</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">drag_position</span> <span class="o">=</span> <span class="kt">Vector2</span><span class="o">.</span><span class="n">ZERO</span> <span class="c1"># Set drag position to zero vector</span>
+
+<span class="c1"># Draw Method which checks if we are drawing on the paper </span>
+<span class="k">func</span> <span class="nf">draw_paper</span><span class="p">(</span><span class="n">point</span> <span class="p">:</span> <span class="kt">Vector2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">void</span><span class="p">:</span>
+	<span class="bp">self</span><span class="o">.</span><span class="n">drawing</span> <span class="o">=</span> <span class="n">is_point_in_area</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">draw_area_name</span><span class="p">)</span> <span class="c1"># Check if mouse is in draw area</span>
+</code></pre></div></div>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>That’s it! If you followed this tutorial correctly, you should be able to drag a paper and also draw on it. Based on this you can expand this mechanic for all kinds of application. I hope you enjoyed it!</p>
+
+<p>I’m making a little game based on this mechanic, I’ll post other tutorials where we expand this idea a bit further. So stay tuned! :)</p>
+
+<h1 id="download-">Download <a name="download"></a></h1>
+
+<p>You can find the the source code for this tutorial and all previouse and upcoming tutorials <a href="https://github.com/divin/Godot-Tutorials">here</a>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#godot" class="page__taxonomy-item" rel="tag">Godot</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#taikun" class="page__taxonomy-item" rel="tag">Taikun</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#tutorial" class="page__taxonomy-item" rel="tag">Tutorial</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#tutorials" class="page__taxonomy-item" rel="tag">Tutorials</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-09-17T00:00:00+02:00">September 17, 2020</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/tutorials/godot-tutorial-1/" class="pagination--pager" title="Tutorial 1: Drawable &amp; Draggable Paper In Godot
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tutorials/godot-tutorial-1/" rel="permalink">Tutorial 1: Drawable &amp; Draggable Paper In Godot
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        <time datetime="2020-09-13T00:00:00+02:00">September 13, 2020</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">We make a drawable and draggable paper in Godot.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://divinism.itch.io" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-itch-io" aria-hidden="true"></i> Itch.io</a></li>
+        
+      
+        
+          <li><a href="https://github.com/divin" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.reddit.com/user/Divinism_" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i> Reddit</a></li>
+        
+      
+        
+          <li><a href="https://www.youtube.com/channel/UCD3Wgy3Esgda2JRw74WSF1Q/featured?view_as=subscriber" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i> Youtube</a></li>
+        
+      
+        
+          <li><a href="https://soundcloud.com/user-470717205" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-soundcloud" aria-hidden="true"></i> SoundCloud</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Divinism | <a href="/credits/">Credits</a> | <a href="/terms/">Terms & Privacy Policy</a> </div>
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<script>addBackToTop({
+  diameter: 48,
+  backgroundColor: 'rgb(80, 85, 92)',
+  textColor: '#fff'
+})</script>
+
+  </body>
+</html>

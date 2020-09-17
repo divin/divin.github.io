@@ -1,0 +1,36 @@
+I"&	<h1 id="introduction">Introduction</h1>
+
+<p>Today we are improving our mechanic from <a href="https://divin.github.io/tutorials/godot-tutorial-1/">Tutorial 1</a>. The result will look like this:</p>
+
+<p><img src="/assets/images/posts/tutorial_2/result.gif" alt="Result" title="Result" /></p>
+
+<p>Looks like similiar as before, right? Indeed but we got rid of the “A” button to switch between draw and drag mode. Thanks to the Reddit guys on the <a href="https://www.reddit.com/r/godot/">Godot subreddit</a>, who gave me feedback on my previouse tutorial.</p>
+
+<p>Again a little disclaimer:</p>
+
+<p><em>This tutorial is more aimed for people with a bit of knowledge in Godot and GDScript.
+I like to use a bit more Object Oriented Programming (OOP) style and usually try to define the variables and methods correctly by limiting
+the data type (for example <code class="language-plaintext highlighter-rouge">var foo : String = "bar"</code>). This is helpful to prevent misuse of variables/methods and make bug fixing a bit easier in my opinion.</em></p>
+
+<p>Download links for the source code are on my GitHub (or visit the <a href="#download">Download section</a>) :)</p>
+
+<h1 id="project-settings">Project Settings</h1>
+
+<p>These are the same as for the <a href="https://divin.github.io/tutorials/godot-tutorial-1/">previouse tutorial</a>. Please have a look there!</p>
+
+<h1 id="creating-the-main-scene">Creating the main scene</h1>
+
+<p>We start with something simple this time, the main scene. Just create a <code class="language-plaintext highlighter-rouge">Node2D</code>, name it “Main” and we are done. 
+This time we don’t need a script as everything will be handled by the <code class="language-plaintext highlighter-rouge">Paper</code> scene itself. Fancy, right? :)</p>
+
+<h1 id="creating-the-paper-scene">Creating the paper scene</h1>
+
+<p>Now to the hard part, we create a new scene, select as our root node a <code class="language-plaintext highlighter-rouge">TextureRect</code> and name it “Paper”.</p>
+
+<p>We create a main scene, do nothing
+We create a paper scene, import texture for the setup,</p>
+
+<h1 id="download-">Download <a name="download"></a></h1>
+
+<p>You can find the the source code for this tutorial and all previouse and upcoming tutorials <a href="https://github.com/divin/Godot-Tutorials">here</a>.</p>
+:ET
