@@ -1,11 +1,16 @@
 ---
-title: "Welcome!"
+title: "Welcome to my Page!"
 layout: home
 author_profile: true
 ---
 
-If you want to check out my recent projects head over to [Projects](/projects/).  
-You want to chat? Go to [Contact](/contact/).  
-Are you looking for a post, dig in the [Archive](/archive/) or use the search.  
+Looking for my Projects? → [Projects](https://divin.github.io/projects/) 👨‍💻  
+Want to chat? → [Contact](https://divin.github.io/contact/) 🤙  
+Looking for a post? → [Archive](https://divin.github.io/archive/) or use the search 🔎  
 
-Below you'll find my recent posts.
+
+
+Below you'll find my recent posts 👇
+
+
+
