@@ -26,7 +26,7 @@ analytics:
 author:
   name             : "Divin"
   avatar           : "/assets/images/bio-photo.jpeg"
-  bio              : "Just a dude creating things."
+  bio              : ""
   location         : "Somewhere, Germany"
   links:
     - label: "Itch.io"
@@ -44,6 +44,9 @@ author:
     - label: "SoundCloud"
       icon: "fab fa-fw fa-soundcloud"
       url: "https://soundcloud.com/user-470717205"
+    - label: "Buy me a tea ✌🏼"
+      icon: "fas fa-mug-hot"
+      url: "https://ko-fi.com/divinism"
 
 # Site Footer
 footer:

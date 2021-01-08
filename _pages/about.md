@@ -3,7 +3,8 @@ title: "About"
 layout: single
 permalink: /about/
 classes: wide
-last_modified_at: 2021-01-07
+author_profile: true
+last_modified_at: 2021-01-08
 ---
 
 👋  Hello there! I’m Divin, a Physics student from South Germany.

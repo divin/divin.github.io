@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-07T21:42:33+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Divinism</title><subtitle>My personal website!</subtitle><author><name>Divin</name></author><entry><title type="html">Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot</title><link href="http://localhost:4000/tutorials/tutorial-1/" rel="alternate" type="text/html" title="Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot" /><published>2021-01-07T00:00:00+01:00</published><updated>2021-01-07T00:00:00+01:00</updated><id>http://localhost:4000/tutorials/tutorial-1</id><content type="html" xml:base="http://localhost:4000/tutorials/tutorial-1/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-01-08T14:33:39+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Divinism</title><subtitle>My personal website!</subtitle><author><name>Divin</name></author><entry><title type="html">Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot</title><link href="http://localhost:4000/tutorials/tutorial-1/" rel="alternate" type="text/html" title="Tutorial 1: Drawable &amp;amp; Draggable Paper In Godot" /><published>2021-01-07T00:00:00+01:00</published><updated>2021-01-07T00:00:00+01:00</updated><id>http://localhost:4000/tutorials/tutorial-1</id><content type="html" xml:base="http://localhost:4000/tutorials/tutorial-1/">&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -258,7 +258,7 @@ var pen_selected : bool = false
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/posts/post_1/image_4&quot; alt=&quot;&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Our scene should look like the picture on the left. We are done for the moment, so let’s add a script to our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Our scene should look like the picture above. We are done for the moment, so let’s add a script to our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Paper&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;and call it “Paper”.&lt;/p&gt;
 
