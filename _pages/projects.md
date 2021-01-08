@@ -25,7 +25,7 @@ Is Japanese and mean originally _“Great Lord”_, it’s the origin of the Eng
 <div class="notice"> {{ project-0 | markdownify }} </div>
 
 {% capture project-0 %}
-## Notion-To-Github
+## [Notion-To-Github](https://github.com/divin/Notion-To-Github-Pages)
 
 I've created a script with the inoffical [Notion Python API](https://github.com/jamalex/notion-py/) which access a table at a public Notion page and create with the content of this table, my website. I can now use Notion as my Content Management System (CMS). It does not support all Notions blocks but for the most part it works. Notion will release an offical API in Spring 2021, hopefully I can improve this script as soon as I've access to this.
 
