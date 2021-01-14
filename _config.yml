@@ -201,6 +201,7 @@ defaults:
       related: true
       mathjax: true
       show_date: true
+      comments: true
 
   # _pages
   - scope:
@@ -209,4 +210,3 @@ defaults:
     values:
       layout: single
       author_profile: true
-      comments: true
