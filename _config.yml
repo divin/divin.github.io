@@ -27,7 +27,7 @@ comments:
   provider: "utterances"
   utterances:
     theme: "github-dark"
-    issue_term: "comments"
+    issue_term: "pathname"
 
 # Site Author
 author:
