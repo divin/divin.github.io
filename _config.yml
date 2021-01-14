@@ -21,6 +21,13 @@ search_provider          : lunr # lunr (default), algolia, google
 analytics:
   provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
 
+# Comments
+repository: divin/divin.github.io
+comments:
+  provider: "utterances"
+  utterances:
+    theme: "github-dark"
+    issue_term: "comments"
 
 # Site Author
 author:
@@ -202,3 +209,4 @@ defaults:
     values:
       layout: single
       author_profile: true
+      comments: true
