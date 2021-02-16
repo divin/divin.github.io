@@ -32,7 +32,7 @@ comments:
 # Site Author
 author:
   name             : "Divin"
-  avatar           : ""
+  avatar           : "/assets/images/default.png"
   bio              : ""
   location         : "Somewhere, Germany"
   links:
