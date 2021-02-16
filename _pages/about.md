@@ -15,7 +15,7 @@ I’m heavily interested in programming especially Game Development, Machine Lea
 
 Here are some of my skills:
 
-* Programming languages: Python, GDScript, C#, Java, C++, LaTex, Swift
+* Programming languages: Python, Julia, GDScript, C#, Java, C++, LaTex, Swift, React
 
 * Software: Godot, Unity, Photoshop, Cinema 4D, ZBrush, Xcode, Blender
 
