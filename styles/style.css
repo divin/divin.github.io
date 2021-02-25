@@ -74,19 +74,19 @@ header {
   }
 }
 .logo a:visited {
-  color: inherit;
+  color: #f8f8f8;
 }
 @media (prefers-color-scheme: light) {
   .logo a:visited {
-    color: inherit;
+    color: black;
   }
 }
 .logo a:active {
-  color: inherit;
+  color: #f8f8f8;
 }
 @media (prefers-color-scheme: light) {
   .logo a:active {
-    color: inherit;
+    color: black;
   }
 }
 
@@ -172,6 +172,7 @@ main form button {
   font-size: min(2.3vmax, 2.3rem);
   font-weight: 500;
 }
+
 footer {
   padding: 0.5rem;
   text-align: center;
@@ -199,6 +200,7 @@ footer {
   color: inherit;
   font-size: 1rem;
   font-weight: 600;
+  text-decoration: none;
 }
 .page a:hover {
   color: #30d158;
