@@ -238,7 +238,7 @@ footer {
   margin: 0.7rem;
 }
 .social-media a {
-  color: #f3f3f3;
+  color: inherit;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -255,6 +255,22 @@ footer {
 @media (prefers-color-scheme: light) {
   .social-media a:hover {
     color: #34c759;
+  }
+}
+.social-media a:visited {
+  color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .social-media a:visited {
+    color: inherit;
+  }
+}
+.social-media a:active {
+  color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .social-media a:active {
+    color: inherit;
   }
 }
 
