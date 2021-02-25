@@ -25,29 +25,6 @@ body {
     background-color: #f8f8f8;
   }
 }
-body a {
-  color: #30d158;
-  text-decoration: none;
-}
-body a:hover {
-  text-decoration: underline;
-}
-body a:visited {
-  color: #30d158;
-}
-@media (prefers-color-scheme: light) {
-  body a:visited {
-    color: #34c759;
-  }
-}
-body a:active {
-  color: #30d158;
-}
-@media (prefers-color-scheme: light) {
-  body a:active {
-    color: #34c759;
-  }
-}
 
 .body {
   display: grid;
@@ -78,6 +55,7 @@ header {
   color: #f8f8f8;
   font-size: 2rem;
   font-weight: 650;
+  text-decoration: none;
 }
 @media (prefers-color-scheme: light) {
   .logo a {
@@ -121,6 +99,29 @@ main h1 {
   color: inherit;
   text-align: left;
   font-size: min(4vmax, 4rem);
+}
+main a {
+  color: #30d158;
+  text-decoration: none;
+}
+main a:hover {
+  text-decoration: underline;
+}
+main a:visited {
+  color: #30d158;
+}
+@media (prefers-color-scheme: light) {
+  main a:visited {
+    color: #34c759;
+  }
+}
+main a:active {
+  color: #30d158;
+}
+@media (prefers-color-scheme: light) {
+  main a:active {
+    color: #34c759;
+  }
 }
 main form {
   padding: 1rem;
