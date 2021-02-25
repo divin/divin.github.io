@@ -104,6 +104,7 @@ main form input {
   display: inline-block;
   width: 90%;
   padding: 0.5rem;
+  border-radius: 4px;
   margin-bottom: 0.5rem;
 }
 main form textarea {
@@ -111,6 +112,7 @@ main form textarea {
   height: auto;
   padding: 0.5rem;
   margin-bottom: 0.5rem;
+  border-radius: 4px;
   width: 90%;
   overflow: auto;
 }
