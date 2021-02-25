@@ -32,6 +32,22 @@ body a {
 body a:hover {
   text-decoration: underline;
 }
+body a:visited {
+  color: #30d158;
+}
+@media (prefers-color-scheme: light) {
+  body a:visited {
+    color: #34c759;
+  }
+}
+body a:active {
+  color: #30d158;
+}
+@media (prefers-color-scheme: light) {
+  body a:active {
+    color: #34c759;
+  }
+}
 
 .body {
   display: grid;
@@ -77,6 +93,22 @@ header {
 @media (prefers-color-scheme: light) {
   .logo a:hover {
     color: #34c759;
+  }
+}
+.logo a:visited {
+  color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .logo a:visited {
+    color: inherit;
+  }
+}
+.logo a:active {
+  color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .logo a:active {
+    color: inherit;
   }
 }
 
@@ -176,6 +208,22 @@ footer {
     color: #34c759;
   }
 }
+.page a:visited {
+  color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .page a:visited {
+    color: inherit;
+  }
+}
+.page a:active {
+  color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .page a:active {
+    color: inherit;
+  }
+}
 
 .social-medias {
   padding: 0rem;
@@ -226,6 +274,22 @@ footer {
 @media (prefers-color-scheme: light) {
   .bottom-line a:hover {
     color: #34c759;
+  }
+}
+.bottom-line a:visited {
+  color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .bottom-line a:visited {
+    color: inherit;
+  }
+}
+.bottom-line a:active {
+  color: inherit;
+}
+@media (prefers-color-scheme: light) {
+  .bottom-line a:active {
+    color: inherit;
   }
 }
 
