@@ -33,7 +33,7 @@ body .body {
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-rows: auto 1fr auto;
+  /* grid-template-rows: auto 1fr auto; */
   margin: 0 auto;
 }
 @media screen and (min-width: 70rem) {
@@ -47,7 +47,7 @@ body .turn {
 }
 
 header {
-  padding: 1rem;
+  padding: 0.3rem;
   border-bottom: 1px solid #fff;
 }
 @media (prefers-color-scheme: light) {
@@ -60,7 +60,7 @@ header .logo {
 }
 header .logo a {
   color: #f8f8f8;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 650;
   text-decoration: none;
 }
@@ -83,6 +83,7 @@ header .logo a:hover {
 main {
   padding: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;
   margin: 0;
 }
 main .content {
@@ -217,7 +218,7 @@ main form button {
 }
 
 footer {
-  padding: 0.5rem;
+  padding: 0.2rem;
   text-align: center;
   border-top: 1px solid #fff;
 }
@@ -228,7 +229,7 @@ footer {
 }
 
 .pages {
-  padding: 0.5rem;
+  padding: 0.2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -256,7 +257,7 @@ footer {
 }
 
 .social-medias {
-  padding: 0rem;
+  padding: 0.2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -265,7 +266,7 @@ footer {
 .social-media {
   flex: 1 1 10%;
   flex: 0 1 10%;
-  margin: 0.7rem;
+  margin: 0.5rem;
 }
 .social-media a {
   color: inherit;

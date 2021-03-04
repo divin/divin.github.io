@@ -64,7 +64,7 @@ body .body .turn {
 }
 
 header {
-  padding: 1rem;
+  padding: 0.5rem;
   border-bottom: 1px solid #fff;
 }
 @media (prefers-color-scheme: light) {
@@ -77,7 +77,7 @@ header .logo {
 }
 header .logo a {
   color: #f8f8f8;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 650;
   text-decoration: none;
 }
@@ -234,7 +234,7 @@ main form button {
 }
 
 footer {
-  padding: 0.5rem;
+  padding: 0.3rem;
   text-align: center;
   border-top: 1px solid #fff;
 }
@@ -245,7 +245,7 @@ footer {
 }
 
 .pages {
-  padding: 0.5rem;
+  padding: 0.3rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -254,7 +254,7 @@ footer {
 .page {
   flex: 1 1 20%;
   flex: 0 1 20%;
-  margin: 0.3rem;
+  margin: 0.2rem;
 }
 .page a {
   color: inherit;
@@ -273,7 +273,7 @@ footer {
 }
 
 .social-medias {
-  padding: 0rem;
+  padding: 0.2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -282,7 +282,7 @@ footer {
 .social-media {
   flex: 1 1 10%;
   flex: 0 1 10%;
-  margin: 0.7rem;
+  margin: 0.5rem;
 }
 .social-media a {
   color: inherit;
