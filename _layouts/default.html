@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+  <head>
+    {% include head.html %}
+  </head>
+
+  <body>
+
+    <div class = "body">
+
+      <header>
+        {% include header.html %}
+      </header>
+
+      <div class = "turn">
+        Please turn your device!
+      </div>
+  
+      <main>
+        {{ content }}
+      </main>
+  
+      <footer>
+        {% include pages.html %}
+        {% include social.html %}
+        {% include copyright.html %}
+      </footer>
+      
+    </div>
+
+  </body>
+
+</html>

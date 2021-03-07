@@ -1,0 +1,9 @@
+name: Divinism
+title: Divinism
+url: "https://divinism.space"
+
+collections:
+  - projects
+
+sass:
+  sass_dir: _sass
