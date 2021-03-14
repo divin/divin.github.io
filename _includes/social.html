@@ -1,38 +1,9 @@
-<div class = "social-medias">
-    <div class = "social-media">
-        <a href = "https://www.github.com/divin">
-            <i class = "fab fa-github fa-2x"></i>
-        </a>
-    </div>
-
-    <div class = "social-media">
-        <a href = "https://soundcloud.com/divinism-space">
-            <i class = "fab fa-soundcloud fa-2x"></i>
-        </a>
-    </div>
-
-    <div class = "social-media">
-        <a href = "https://www.reddit.com/u/divinism_">
-            <i class = "fab fa-reddit fa-2x"></i>
-        </a>
-    </div>
-
-    <div class = "social-media">
-        <a href = "https://www.youtube.com/channel/UCD3Wgy3Esgda2JRw74WSF1Q">
-            <i class = "fab fa-youtube fa-2x"></i>
-        </a>
-    </div>
-
-    <div class = "social-media">
-        <a href = "https://divinism.itch.io">
-            <i class = "fab fa-itch-io fa-2x"></i>
-        </a>
-    </div>
-
-    <div class = "social-media">
-        <a href = "https://ko-fi.com/divinism">
-            <i class="fas fa-mug-hot fa-2x"></i>
-        </a>
-    </div>
-
-</div>
+<div class = "social-media-wrapper">
+    <ul>
+      {% for social in site.data.social %}
+        <li>
+          <a href = "{{ social.url }}"><i class = "{{ social.icon }}"></i></a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>

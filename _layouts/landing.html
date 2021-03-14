@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+  {% include head.html %}
+
+  <link rel = "stylesheet" property = "stylesheet" href = "/assets/css/landing.css">
+  <link rel = "stylesheet" property = "stylesheet" href = "/assets/fontawesome/css/all.css">
+
+  <body>
+    <div class = "body-wrapper">
+
+      <div class = "landing-wrapper">
+
+        <div class = "logo-wrapper">
+          <h1>
+            <a href = "/">
+              {{ site.title }}
+            </a>
+          </h1>
+        </div>
+
+        <div class = "content-wrapper">
+          {{ content }}
+        </div>
+
+        <div class = "pages-wrapper">
+          <ul>
+            {% for page in site.data.pages %}
+              {% assign url = "/" | append: page.name | downcase %}
+              <li>
+                <a href = "{{ url }}">{{ page.name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class = "social-media-wrapper">
+          <ul>
+            {% for social in site.data.social %}
+              <li>
+                <a href = "{{ social.url }}"><i class = "{{ social.icon }}"></i></a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <div class = "bottom-wrapper">
+          <script>document.write(new Date().getFullYear())</script> ©
+          <a href = "/">{{ site.title }}</a> | 
+          <a href = "/credits">Credits</a> | 
+          <a href = "/terms">Terms & Privacy Policy</a>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+
+</html>

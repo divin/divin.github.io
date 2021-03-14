@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<link rel = "stylesheet" property = "stylesheet" href = "/assets/css/blog.css">
+
+{{ page.content }}
+
+{% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
+{% for year in postsByYear %}
+    <h1 class = "year">{{ year.name }}</h1>
+    {% assign postsByMonth = year.items | group_by_exp: "post", "post.date | date: '%B'" %}
+
+    {% for month in postsByMonth %}
+        <h2 class = "month">{{ month.name }}</h2>
+        <ul class = "list">
+            {% for post in month.items %}
+                <a href = "{{ post.url }}">
+                    <p>{{ post.date | date: "%-d %B"}}</p>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.excerpt | markdownify }}</p>
+                </a>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endfor %}

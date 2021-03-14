@@ -1,0 +1,30 @@
+.pages-wrapper {
+
+    padding: 1rem;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+    }
+
+    li {
+        margin: 0 0.5rem;
+    }
+
+    a {
+        color: inherit;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 0.5rem;
+
+        &:hover {
+            color: $link-color;
+        }
+    }
+}

@@ -1,6 +1,15 @@
-<div class = "pages">
-    <div class = "page"><a href = "/about">About</a></div>
-    <div class = "page"><a href = "/projects">Projects</a></div>
-    <div class = "page"><a href = "/blog">Blog</a></div>
-    <div class = "page"><a href = "/contact">Contact</a></div>
-</div>
+<div class = "pages-wrapper">
+    <ul>
+      {% for item in site.data.pages %}
+        {% if page.url contains item.url %}
+          <li class = "active">
+            <a class = "active" href = "{{ item.url }}">{{ item.name }}</a>
+          </li>
+        {% else %}
+          <li>
+            <a href = "{{ item.url }}">{{ item.name }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>

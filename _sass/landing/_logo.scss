@@ -1,0 +1,19 @@
+.logo-wrapper {
+    
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 600;
+    }
+
+    a {
+        animation: text-effect 4s infinite;
+        text-decoration: none;
+
+        &:hover {
+            animation: none;
+            color: $link-color;
+        }
+    }
+}

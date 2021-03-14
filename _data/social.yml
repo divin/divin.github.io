@@ -1,0 +1,27 @@
+- name: GitHub
+  url: https://github.com/divin
+  icon: fab fa-github fa-2x
+
+- name: SoundCloud
+  url: https://soundcloud.com/divinism-space
+  icon: fab fa-soundcloud fa-2x
+
+- name: Reddit
+  url: https://www.reddit.com/u/divinism_
+  icon: fab fa-reddit fa-2x
+
+- name: YouTube
+  url: https://www.youtube.com/channel/UCD3Wgy3Esgda2JRw74WSF1Q
+  icon: fab fa-youtube fa-2x
+
+- name: Itch.io
+  url: https://divinism.itch.io
+  icon: fab fa-itch-io fa-2x
+
+- name: Ko-fi
+  url: https://ko-fi.com/divinism
+  icon: fas fa-mug-hot fa-2x
+
+- name: Bandcamp
+  url: https://divinism.bandcamp.com
+  icon: fab fa-bandcamp fa-2x

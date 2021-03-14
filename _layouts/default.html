@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 
-<html lang = "en">
+<html>
+  
+  {% include head.html %}
 
-  <head>
-    {% include head.html %}
-  </head>
+  <link rel = "stylesheet" property = "stylesheet" href = "/assets/css/default.css">
+  <link rel = "stylesheet" property = "stylesheet" href = "/assets/fontawesome/css/all.css">
+
+  {% if page.math %}
+    <script type = "text/javascript" id = "MathJax-script" async src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endif %}
 
   <body>
-
-    <div class = "body">
-
-      <header>
-        {% include header.html %}
-      </header>
-
-      <div class = "turn">
-        Please turn your device!
-      </div>
-  
-      <main>
-        {{ content }}
-      </main>
-  
-      <footer>
-        {% include pages.html %}
-        {% include social.html %}
-        {% include copyright.html %}
-      </footer>
+    <div class = "body-wrapper">
+      {% include header.html %}
       
-    </div>
+      <div class = "content-wrapper">
+        <div class = "page-title">
+          <h1>{{ page.title }}</h1>
+        </div>
 
+        <div class = "content">
+          {{ content }}
+        </div>
+      </div>
+
+      {% include footer.html %}
+    </div>
   </body>
 
 </html>

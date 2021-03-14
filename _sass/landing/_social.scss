@@ -1,0 +1,36 @@
+.social-media-wrapper {
+
+    padding: 1rem;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+    }
+
+    li {
+        margin: 0 0.5rem;
+        animation: none;
+
+        &:hover {
+            animation: shake 1s infinite alternate;
+        }
+    }
+
+    a {
+        color: inherit;
+        padding: 0.5rem;
+
+        &:hover {
+            color: $link-color;
+        }
+    }
+
+    i {
+        font-size: 1.5rem;
+    }
+}

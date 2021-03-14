@@ -1,9 +1,7 @@
 ---
+title: Credits
 layout: default
 permalink: /credits
----
-
-# Credits
 ---
 
 This site ist hosted hosted for free via [GitHub Pages](https://pages.github.com/) and is written and updated by me. 

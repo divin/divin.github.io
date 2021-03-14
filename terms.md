@@ -1,9 +1,7 @@
 ---
+title: Terms & Privacy Policy
 layout: default
 permalink: /terms
----
-
-# Terms & Privacy Policy
 ---
 
 The privacy of my visitors is extremely important. This Privacy Policy outlines the types of personal information that is received and collected and how it is used.

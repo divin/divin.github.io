@@ -1,0 +1,14 @@
+.bottom-wrapper {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    text-align: center;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: $link-color;
+        }
+    }
+}

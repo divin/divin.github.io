@@ -1,0 +1,61 @@
+// Basic
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/***************************************/
+
+// HTML
+html {
+    // Fonts
+    font-family: 'Helvetica Neue', 'Arial', 'Lucia Grande', sans-serif;
+
+    // Colors
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+
+    a {
+        color: $link-color;
+    }
+
+    @media (prefers-color-scheme: light) {
+        color: $light-text-color;
+        background-color: $light-background-color;
+    }
+}
+
+/***************************************/
+
+// Body
+.body-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/***************************************/
+
+// Main
+.landing-wrapper {
+    width: 85%;
+    padding: 0.5rem;
+}
+
+/***************************************/
+
+// Content
+.content-wrapper {
+    padding: 0rem;
+    text-align: center;
+    font-size: 1.2rem;
+
+    .waving-hand {
+        display: inline-block;
+        transform-origin: 70% 70%;
+        animation: wave 2.5s infinite;
+    }
+}
