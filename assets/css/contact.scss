@@ -1,0 +1,54 @@
+---
+---
+
+@import 'variables';
+@import 'animations';
+
+form {
+    padding: 1rem;
+
+    fieldset {
+        margin: 0;
+        padding: 0rem;
+        border-width: 0;
+        text-align: center;
+        border-color: inherit;
+    }
+
+    label {
+        text-align: start;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.5rem;
+        color: inherit;
+    }
+
+    input {
+        display: inline-block;
+        width: 90%;
+        padding: 0.5rem;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+    }
+
+    textarea {
+        resize: vertical;
+        height: auto;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 4px;
+        width: 90%;
+        overflow: auto;
+    }
+
+    button {
+        width: 90%;
+        padding: 0.5rem;
+        border-radius: 1rem;
+        background-color: inherit;
+        color: inherit;
+        border-color: inherit;
+        border-width: 1px;
+        font-size: 1rem;
+    }
+}

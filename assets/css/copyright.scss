@@ -1,4 +1,11 @@
-.bottom-wrapper {
+---
+---
+
+@import 'variables';
+@import 'animations';
+
+.copyright-wrapper {
+    margin-top: -0.2rem;
     padding: 0.8rem;
     font-size: 0.8rem;
     text-align: center;

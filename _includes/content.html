@@ -1,0 +1,20 @@
+<div class = "content-wrapper">
+
+    {% assign page_title = true %}
+
+    {% for item in site.data.pages %}
+        {% if page.url == item.url %}
+            {% assign page_title = false %}
+        {% endif %}
+    {% endfor %}
+
+    {% if page_title %}
+        <div class = "page-title">
+            <h2>{{ page.title }}</h2>
+        </div>
+    {% endif %}
+
+    <div class = "content">
+      {{ content }}
+    </div>
+  </div>

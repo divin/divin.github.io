@@ -4,11 +4,9 @@ permalink: /blog
 layout: default
 ---
 
-## I'm sorry, this page is still under construction...
-
-{% comment %}
 <link rel = "stylesheet" property = "stylesheet" href = "/assets/css/blog.css">
 
+<div class = "posts">
 {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 
 {% for year in postsByYear %}
@@ -18,13 +16,15 @@ layout: default
 <h2>{{ month.name }}</h2>
 <ul>
 {% for post in month.items %}
+<h3>{{ post.date | date: "%-d %B"}}</h3>
+<div class = "post">
 <a href = "{{ post.url }}">
-<p>{{ post.date | date: "%-d %B"}}</p>
-<h2>{{ post.title }}</h2>
+<h3>{{ post.title }}</h3>
 <p>{{ post.excerpt | markdownify }}</p>
 </a>
+</div>
 {% endfor %}
 </ul>
 {% endfor %}
 {% endfor %}
-{% endcomment %}
+</div>

@@ -1,12 +1,9 @@
+<link rel = "stylesheet" property = "stylesheet" href = "/assets/css/footer.css">
+
 <footer>
   <div class = "line-wrapper"></div>
   
   {% include social.html %}
 
-  <div class = "bottom-wrapper">
-    <script>document.write(new Date().getFullYear())</script> ©
-    <a href = "/">{{ site.title }}</a> | 
-    <a href = "/credits">Credits</a> | 
-    <a href = "/terms">Terms & Privacy Policy</a>
-  </div>
+  {% include copyright.html %}
 </footer>

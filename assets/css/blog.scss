@@ -1,2 +1,28 @@
 ---
 ---
+
+@import 'variables';
+@import 'animations';
+
+.posts {
+
+    ul {
+        list-style: none;
+    }
+
+    .post {
+        padding: 1rem;
+        background-color: $box-color;
+        border-radius: 1rem;
+        width: 85%;
+
+        &:hover {
+            background-color: $box-hover-color;
+        }
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+}

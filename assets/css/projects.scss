@@ -2,6 +2,7 @@
 ---
 
 @import 'variables';
+@import 'animations';
 
 .projects {
     display: flex;
@@ -12,7 +13,7 @@
     .project {
         flex: 0 1 150rem;
         margin: 1rem;
-        background-color: rgb(142, 142, 147);
+        background-color: $box-color;
         border-radius: 1rem;
         text-align: center;
         color: inherit;
@@ -20,7 +21,7 @@
         padding: 1rem;
 
         &:hover {
-            background-color: $link-color;
+            background-color: $box-hover-color;
         }
 
         a {

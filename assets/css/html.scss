@@ -1,0 +1,27 @@
+---
+---
+
+@import 'variables';
+@import 'animations';
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    font-family: 'Helvetica Neue', 'Arial', 'Lucia Grande', sans-serif;
+    
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+
+    a {
+        color: $link-color;
+    }
+
+    @media (prefers-color-scheme: light) {
+        color: $light-text-color;
+        background-color: $light-background-color;
+    }
+}

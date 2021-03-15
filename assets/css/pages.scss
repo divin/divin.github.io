@@ -1,5 +1,11 @@
-.pages-wrapper {
+--- 
+---
 
+@import 'variables';
+@import 'animations';
+
+.pages-wrapper {
+    margin-top: -0.2rem;
     padding: 1rem;
 
     ul {
@@ -26,5 +32,9 @@
         &:hover {
             color: $link-color;
         }
+    }
+
+    .active {
+        color: $link-color;
     }
 }
