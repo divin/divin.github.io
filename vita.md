@@ -90,6 +90,7 @@ I'm doing my Bachelor thesis in computational physics, due to finish around July
 * Other skills & interest:
    - playing drums 🥁
    - learning ukulele & piano 🎹
+   - reading 📚
    - drawing 🧑‍🎨
    - hiking 🥾
    - philosophy 🤔
