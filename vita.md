@@ -18,14 +18,42 @@ I'm doing my Bachelor thesis in computational physics, due to finish around July
 
 *  `September 2012 - Juli 2015`  
    _Werner-Siemens-School Stuttgart, Germany_  
-   High School (Profile: enviromental engineering)  
+   High School (Profile: enviromental engineering)
+
+## Work Experience
+---
+
+* `November 2020 - March 2021`  
+   _Institut for Astronomy and Astrophysics Tübingen_  
+   _Department: Computational Physics Group_  
+
+   Research Assistant
+   - Numerical hydrodynamic simulations of binary systems
+   - Writing setups in `C` and `CUDA`
+
+* `October 2018 - March 2020`  
+   _Institut for Astronomy and Astrophysics Tübingen_  
+   _Department: High Energy Astrophysics Group_  
+
+   Research Assistant
+   - Learning `Python`, `HEASOFT` and other tools for analysis
+   - Data analysis of raw data from the HXMT-Satellite
+   - Writing of a scientific paper
 
 ## Internships
 ---
 
 * `March 2019 - May 2019`  
    _Saitama University, Japan_  
-   High Energy Astrophysics Laboratory as Scientific Assitant
+   _High Energy Astrophysics Laboratory_
+
+   Research Assistant
+
+## Publications
+---
+
+* ["X-ray reprocessing in accreting pulsar GX 301-2 observed with Insight-HXMT"](https://arxiv.org/abs/2012.02556)  
+   As co-author, arXiv, December 2020
 
 ## Skills
 ---

@@ -15,7 +15,7 @@
     padding: 0rem 1rem;
     
     code {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
     .page-title {
@@ -34,7 +34,20 @@
     }
 
     .content {
-        margin-top: -1rem;
-        padding: 0.5rem;
+        padding: 1rem;
+        max-width: 800px;
+        margin: -1rem auto;
+        font-size: 1.2rem;
+
+    }
+
+    .blog-bottom {
+        padding: 1rem;
+
+        border-top: 1px solid $dark-text-color;
+
+        @media (prefers-color-scheme: light) {
+            border-top: 1px solid $light-text-color;
+        }
     }
 }
