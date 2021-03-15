@@ -59,30 +59,39 @@ I'm doing my Bachelor thesis in computational physics, due to finish around July
 ---
 
 * Programming languages I speak: 
-    * `Python`
-    * `Julia`
-    * `GDScript`
-    * `C#`
-    * `C/C++`
-    * `Java`
-    * `LaTex`
-    * `Swift`
-    * `HTML`
-    * `CSS`
-    * `SASS`
+    - `Python`
+    - `Julia`
+    - `GDScript`
+    - `C#`
+    - `C/C++`
+    - `Java`
+    - `LaTex`
+    - `Swift`
+    - `HTML`
+    - `CSS`
+    - `SASS`
 
 * Software I'm using:
-    * [Godot](https://godotengine.org) (game engine)
-    * [Unity](https://unity.com/) (game engine)
-    * [Xcode](https://developer.apple.com/xcode/) (iOS development)
-    * [Nomad Sculpt](https://nomadsculpt.com) (3D sculpting program)
-    * [Blender](https://www.blender.org) (3D, animation, modeling & sculpting)
-    * [Procreate](https://procreate.art) (digital drawing)
-    * [Affinity Designer](https://affinity.serif.com/en/designer/) (illustration and vector art)
-    * [Logic Pro](https://www.apple.com/en/logic-pro/) (music & sound production)
-    * [Visual Studio Code](https://code.visualstudio.com) (main code editor)
+    - [Godot](https://godotengine.org) (game engine)
+    - [Unity](https://unity.com/) (game engine)
+    - [Xcode](https://developer.apple.com/xcode/) (iOS development)
+    - [Nomad Sculpt](https://nomadsculpt.com) (3D sculpting program)
+    - [Blender](https://www.blender.org) (3D, animation, modeling & sculpting)
+    - [Procreate](https://procreate.art) (digital drawing)
+    - [Affinity Designer](https://affinity.serif.com/en/designer/) (illustration and vector art)
+    - [Logic Pro](https://www.apple.com/en/logic-pro/) (music & sound production)
+    - [Visual Studio Code](https://code.visualstudio.com) (main code editor)
 
 * Languages I speak: 
-    * German
-    * English
-    * Japanese (basic knowledge)
+    - German 🇩🇪
+    - English 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+    - Japanese (basic knowledge) 🇯🇵
+
+* Other skills & interest:
+   - playing drums 🥁
+   - learning ukulele & piano 🎹
+   - drawing 🧑‍🎨
+   - hiking 🥾
+   - philosophy 🤔
+   - psychology 👨‍⚕️
+
