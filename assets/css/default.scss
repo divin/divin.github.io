@@ -19,12 +19,18 @@
     }
 
     .page-title {
-        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
         border-bottom: 1px solid $dark-text-color;
 
         @media (prefers-color-scheme: light) {
             border-bottom: 1px solid $light-text-color;
         }
+    }
+
+    .post-date {
+        text-align: right;
+        margin: 0;
+        padding: 0;
     }
 
     .content {

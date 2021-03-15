@@ -23,3 +23,9 @@
    60% { transform: rotate( 0.0deg) }
   100% { transform: rotate( 0.0deg) }
 }
+
+.waving-hand {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 2.5s infinite;
+}

@@ -1,17 +1,18 @@
 <div class = "content-wrapper">
 
-    {% assign page_title = true %}
+    {% assign need_title = true %}
 
     {% for item in site.data.pages %}
         {% if page.url == item.url %}
-            {% assign page_title = false %}
+            {% assign need_title = false %}
         {% endif %}
     {% endfor %}
 
-    {% if page_title %}
-        <div class = "page-title">
-            <h2>{{ page.title }}</h2>
-        </div>
+    {% if need_title %}
+        <h2 class = "page-title">{{ page.title }}</h2>
+        {% if page.path contains '_posts' %}
+            <h4 class = "post-date">{{ page.date | date: '%-d %B %Y' }}</h4>
+        {% endif %}
     {% endif %}
 
     <div class = "content">

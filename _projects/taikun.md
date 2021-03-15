@@ -1,7 +1,7 @@
 ---
 title: Taikun (jap. たいくん / 大君)
 link: ""
-excerpt: A simple point-and-click 2D game I'm working on in my spare time
+excerpt: A simple point-and-click 2D game I'm working on in my spare time.
 wip: true
 ---
 
