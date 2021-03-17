@@ -87,7 +87,7 @@ I'm doing my Bachelor thesis in computational physics, due to finish around July
     - English 🏴󠁧󠁢󠁥󠁮󠁧󠁿
     - Japanese (basic knowledge) 🇯🇵
 
-* Other skills & interest:
+* Other skills & interests:
    - playing drums 🥁
    - learning ukulele & piano 🎹
    - reading 📚
@@ -95,4 +95,5 @@ I'm doing my Bachelor thesis in computational physics, due to finish around July
    - hiking 🥾
    - philosophy 🤔
    - psychology 👨‍⚕️
+   - my girlfriend 🥰
 
