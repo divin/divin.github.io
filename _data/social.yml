@@ -17,11 +17,3 @@
 - name: Itch.io
   url: https://divinism.itch.io
   icon: fab fa-itch-io fa-2x
-
-- name: Ko-fi
-  url: https://ko-fi.com/divinism
-  icon: fas fa-mug-hot fa-2x
-
-- name: Bandcamp
-  url: https://divinism.bandcamp.com
-  icon: fab fa-bandcamp fa-2x
