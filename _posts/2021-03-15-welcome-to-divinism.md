@@ -3,6 +3,7 @@ title: "Welcome to Divinism 🌌"
 excerpt: "Just a quick hello from my side."
 layout: default
 math: false
+categories: Announcement
 ---
 
 **Hello** <span class = "waving-hand">👋</span>

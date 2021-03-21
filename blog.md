@@ -28,3 +28,46 @@ layout: default
 {% endfor %}
 {% endfor %}
 </div>
+
+
+{% comment %}
+
+TODO: For future me, if there are more posts!
+<script>
+    function show_hide(category)
+    {
+        var item = document.getElementById(category);
+        if (item.style.display === "none")
+        {
+            item.style.display = "block";
+        }
+        else 
+        {
+            item.style.display = "none";
+        }
+    }
+</script>
+
+{% assign categories = "All|Announcement|Development|Philosophy|Music|Art" | split: "|" %}
+
+<ul>
+{% for category in categories %}
+<button onclick = "show_hide('{{ category }}')">{{ category }}</button>
+{% endfor %}
+</ul>
+
+{% for category in categories %}
+<div id = "{{ category }}">
+
+{% if category == "All" %}
+
+{% else %}
+
+<h1>{{ category }}</h1>
+
+{% endif %}
+
+</div>
+{% endfor %}
+
+{% endcomment %}
