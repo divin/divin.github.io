@@ -1,5 +1,5 @@
 ---
-title: "A better way to plot deaths data in times of COVID-19 🦠"
+title: "A better way to represent death data in the era of COVID-19 🦠"
 excerpt: "Found an interesting method to plot periodical data."
 layout: default
 math: false
