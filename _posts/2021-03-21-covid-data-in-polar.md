@@ -10,7 +10,7 @@ I recently saw an interesting [video](https://www.youtube.com/watch?v=VTdVPNvwUL
 
 In the video, Professor Mike Merrifield explains the history and usefulness of the _Nightingale Diagrams_, popularized by Florence Nightingale, who lived in 19th century England. I found this very interesting so I visited the website of the _Federal Statistical Office of Germany_ where you can download the current [data of deaths in Germany](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Sterbefaelle-Lebenserwartung/Tabellen/sonderauswertung-sterbefaelle.html) from 2016 to mid-March 2021.
 
-Somehow the guys over there thought it would be a smart idea to seperate thousands not with a comma "," or a dot "." (which is bit more used in Germany) but with a space " ". This basically means every number is recognized as a `String` and not as a number (like `int` or `float`). After cleaning this up, I plotted the data via `Python` and `matplotlib` and get the following:
+I plotted the data via `Python` and `matplotlib` and get the following:
 
 {:refdef: style="text-align: center;"}
 [![](/assets/images/blog/Death_Rate_Day.png){:height="75%" width="75%"}](/assets/images/blog/Death_Rate_Day.png)
