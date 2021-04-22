@@ -12,8 +12,8 @@
     
 
     <!-- Secondary Meta Tags -->
-    <title>Terms & Privacy Policy | Divinism</title>
-    <meta name = "title" content = "Terms & Privacy Policy | Divinism"/>
+    <title>Random map generation in Godot 🗺 | Divinism</title>
+    <meta name = "title" content = "Random map generation in Godot 🗺 | Divinism"/>
     <meta name = "description" content = "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."/>
     <meta name = "keywords" content = "divinism portfolio work">
     <meta name = "author" content = "Divin">
@@ -81,19 +81,48 @@
     
 
     
-        <h2 class = "page-title">Terms & Privacy Policy</h2>
+        <h2 class = "page-title">Random map generation in Godot 🗺</h2>
+        
+            <h4 class = "post-date">22 April 2021</h4>
         
     
 
     <div class = "content">
-      <p>The privacy of my visitors is extremely important. This Privacy Policy outlines the types of personal information that is received and collected and how it is used.</p>
+      <p>Recently I was interested in how to create random maps in Godot. The topic of creating something, like a map, by just a few lines of code has always interested me. I haven’t done anything like that yet, but I’m working on a small project where I can easily implement that.</p>
 
-<p>First and foremost, I will never share your email address or any other personal information to anyone without your direct consent if you are contacting me with the contact formular.</p>
+<p>The basic idea is simple, you create a noise map by a random noise algorithm (like the “classic” Perlin noise or the improved and open source version, the <a href="https://en.wikipedia.org/wiki/OpenSimplex_noise">OpenSimplex Noise</a>) and based on this noise the map is created. Noise algorithms are a very interesting topic in their own right, which I may delve into in the future, but for now let’s move on. In Godot, you can easily create noise using the <a href="https://docs.godotengine.org/de/stable/classes/class_opensimplexnoise.html"><code class="language-plaintext highlighter-rouge">OpenSimplexNoise</code></a> class. You can use the <code class="language-plaintext highlighter-rouge">get_image()</code> method to create a noise image, which looks for example like this:</p>
 
-<p>I don’t use any log files, cookies, analytics tool or adsense on this site.</p>
+<p style="text-align: center;"><a href="/assets/images/blog/2021-04-18/noisemap.png"><img src="/assets/images/blog/2021-04-22/noisemap.png" alt="" height="100%" width="100%" /></a></p>
+
+<p>You probably ask yourself how do we get from this to a map? Well, as mentioned the basic idea is simple, for each pixel we have now a <code class="language-plaintext highlighter-rouge">float</code> value between 0 and 1. One can now assign for each partial range from 0 to 1 (e.g. 0.25 to 0.50) a specific tile (e.g. grass).</p>
+
+<p><em>Side Note:</em> For my project I used a tileset from <a href="https://www.kenney.nl">kenney.nl</a>, which is very good for prototyping.</p>
+
+<p>This means, you take the noise image, loop through each pixel and based on the value of this pixel you assign a specific tile. This is the basic idea, you can check a playable example (works best on desktop) on my <a href="https://divinism.itch.io">itch.io page</a>, or click the link down below. I also have the source code on my <a href="https://github.com/divin">GitHub page</a> check <a href="https://github.com/divin/Evolution">Evolution</a> as this example is a part of a small project I’m working on.</p>
+
+<p align="center">
+<iframe frameborder="0" src="https://itch.io/embed/1005119?bg_color=222222&amp;fg_color=eeeeee&amp;border_color=363636" width="552" height="167"><a href="https://divinism.itch.io/map-generation-example">Map Generation Example by divinism</a></iframe>
+</p>
 
     </div>
 
+    
+        <div class = "blog-bottom">
+            
+            
+                <h2>Releated Posts</h2>
+                <ul>
+                    
+                    <li><a href = "/announcement/2021/03/15/welcome-to-divinism.html">Welcome to Divinism 🌌</a></li>
+                    
+                    <li><a href = "/data/2021/03/21/covid-data-in-polar.html">A better way to represent death data in the era of COVID-19 🦠</a></li>
+                    
+                </ul>
+            
+
+            <h2>Want to leave a comment?</h2>
+            <p>Feel free to <a href = "/contact">contact</a> me 💌</p>
+        </div>
     
 
   </div>

@@ -13,7 +13,7 @@ In the video, Professor Mike Merrifield explains the history and usefulness of t
 I plotted the data via `Python` and `matplotlib` and get the following:
 
 {:refdef: style="text-align: center;"}
-[![](/assets/images/blog/Death_Rate_Day.png){:height="75%" width="75%"}](/assets/images/blog/Death_Rate_Day.png)
+[![](/assets/images/blog/2021-03-21/Death_Rate_Day.png){:height="75%" width="75%"}](/assets/images/blog/2021-03-21/Death_Rate_Day.png)
 {: refdef}
 
 You read the chart clockwise, from January to December. The different colors indicate different years. It's quickly visible that the average deaths per day are between 2,500 and 3,000.
