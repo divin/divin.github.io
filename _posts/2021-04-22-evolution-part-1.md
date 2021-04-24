@@ -17,10 +17,10 @@ The basic idea is simple, you create a noise map by a random noise algorithm (li
 
 You are probably asking yourself, how do we get from this to a map? Well, as mentioned the basic idea is simple, for each pixel we now have a `float` value between 0 and 1. You can now assign a specific tile (e.g. grass) for each subrange from 0 to 1 (e.g. 0.25 to 0.50).
 
-_Sidenote:_ For my project I used a tileset from [kenney.nl] (https://www.kenney.nl), which I recommend for prototyping. 
+_Sidenote:_ For my project I used a tileset from [kenney.nl](https://www.kenney.nl), which I recommend for prototyping. 
 
 That is, you take the noise image, loop through each pixel, and assign a specific tile based on the value of that pixel. That's the basic idea, you can see a playable example (works best on the desktop) on my [itch.io page](https://divinism.itch.io), or click the link below. I also have the source code on my [GitHub page](https://github.com/divin), see [Evolution](https://github.com/divin/Evolution), as this example is part of a small project I'm working on.
 
-<p align="center">
-<iframe frameborder="0" src="https://itch.io/embed/1005119?bg_color=222222&amp;fg_color=eeeeee&amp;border_color=363636" width="552" height="167"><a href="https://divinism.itch.io/map-generation-example">Map Generation Example by divinism</a></iframe>
-</p>
+{:refdef: style="text-align: center;"}
+[Play Map Generation Example on Itch.io](https://divinism.itch.io/map-generation-example)
+{: refdef}
