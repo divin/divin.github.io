@@ -12,8 +12,8 @@
     
 
     <!-- Secondary Meta Tags -->
-    <title>Welcome to Divinism 🌌 | Divinism</title>
-    <meta name = "title" content = "Welcome to Divinism 🌌 | Divinism"/>
+    <title>Simulating Herbivores and Carnivores 🦁🐮 | Divinism</title>
+    <meta name = "title" content = "Simulating Herbivores and Carnivores 🦁🐮 | Divinism"/>
     <meta name = "description" content = "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."/>
     <meta name = "keywords" content = "divinism portfolio work">
     <meta name = "author" content = "Divin">
@@ -81,15 +81,24 @@
     
 
     
-        <h2 class = "page-title">Welcome to Divinism 🌌</h2>
+        <h2 class = "page-title">Simulating Herbivores and Carnivores 🦁🐮</h2>
         
-            <h4 class = "post-date">15 March 2021</h4>
+            <h4 class = "post-date">28 April 2021</h4>
         
     
 
     <div class = "content">
-      <p><strong>Hello</strong> <span class="waving-hand">👋</span>
-I just finished creating this website, it took me almost a month and three iterations, but now I am more or less done. This is my first self-written website. I used mainly <code class="language-plaintext highlighter-rouge">HTML</code>, <code class="language-plaintext highlighter-rouge">SASS/CSS</code> and <a href="https://jekyllrb.com">Jekyll</a>. Head over to <a href="/projects">Projects</a> if you want to learn more about this project. It was a nice experience and I learned a lot! In the next days and weeks I’ll fill this site with <em>more</em> content, maybe do some optimizations and improvements. If you are an experienced web developer and just stumbled across this site, feel free to <a href="/contact">contact</a> me with any feedback or criticism 😌.</p>
+      <p>I added some more features to my previous map generation tool, now I can adjust the ingame time by changing the <code class="language-plaintext highlighter-rouge">Engine.time_scale</code> factor of Godot. I also added some entities to this simulation. We now have herbivores that only eat plants, and carnivores that hunt the herbivores to get meat. I added several states that determine what the entity is doing, <code class="language-plaintext highlighter-rouge">WALK</code>, <code class="language-plaintext highlighter-rouge">HUNT</code>/ <code class="language-plaintext highlighter-rouge">FLEE</code>, <code class="language-plaintext highlighter-rouge">EAT</code>, <code class="language-plaintext highlighter-rouge">MATE</code> and <code class="language-plaintext highlighter-rouge">DEAD</code>. In the <code class="language-plaintext highlighter-rouge">WALK</code> state, the entity walks for 1 second in a random direction, managed by a <code class="language-plaintext highlighter-rouge">Timer</code> object in Godot. The <code class="language-plaintext highlighter-rouge">HUNT</code>/ <code class="language-plaintext highlighter-rouge">FLEE</code> states are for the carnivore / herbivore respectively. When a herbivore is near the carnivore, the carnivore starts chasing the herbivore while the herbivore tries to escape. Since the carnivore’s speed is slightly faster, the carnivore can chase down the herbivore in most cases. I may have to add some sort of endurance in the future. The entities can also reproduce, for this the state <code class="language-plaintext highlighter-rouge">MATE</code> creates a new tiny baby entity. The other states, <code class="language-plaintext highlighter-rouge">EAT</code> and <code class="language-plaintext highlighter-rouge">DEAD</code>, only feed the entity or put it dead.</p>
+
+<p>Each entity has a kind of <em>health</em> determined by <code class="language-plaintext highlighter-rouge">hunger</code> and <code class="language-plaintext highlighter-rouge">thirst</code>, these values constantly decrease with time, but can be replenished by eating or drinking. So the entities have to eat and drink to stay alive, or in the case of the herbivore, to avoid being hunted down. Below you can see a screenshot of the current state:</p>
+
+<p style="text-align: center;"><a href="/assets/images/blog/2021-04-18/noisemap.png"><img src="/assets/images/blog/2021-04-28/screenshot.png" alt="" height="100%" width="100%" /></a></p>
+
+<p><em>Sidenote:</em> For my project I used a tileset from <a href="https://www.kenney.nl">kenney.nl</a>, which I recommend for prototyping.</p>
+
+<p>You can see a playable example (works best on the desktop) on my <a href="https://divinism.itch.io">itch.io page</a>, or click the link below. I also have the source code on my <a href="https://github.com/divin">GitHub page</a>, see <a href="https://github.com/divin/Evolution">Evolution</a>, as this example is part of a small project I’m working on.</p>
+
+<p style="text-align: center;"><a href="https://divinism.itch.io/evolution">Play Map Generation Example on Itch.io</a></p>
 
     </div>
 
@@ -100,9 +109,9 @@ I just finished creating this website, it took me almost a month and three itera
                 <h2>Releated Posts</h2>
                 <ul>
                     
-                    <li><a href = "/simulations/2021/04/28/evolution-part-2.html">Simulating Herbivores and Carnivores 🦁🐮</a></li>
-                    
                     <li><a href = "/simulations/2021/04/22/evolution-part-1.html">Random map generation in Godot 🗺</a></li>
+                    
+                    <li><a href = "/announcement/2021/03/15/welcome-to-divinism.html">Welcome to Divinism 🌌</a></li>
                     
                 </ul>
             
