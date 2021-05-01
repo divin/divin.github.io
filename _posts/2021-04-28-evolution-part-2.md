@@ -20,5 +20,5 @@ _Sidenote:_ For my project I used a tileset from [kenney.nl](https://www.kenney.
 You can see a playable example (works best on the desktop) on my [itch.io page](https://divinism.itch.io), or click the link below. I also have the source code on my [GitHub page](https://github.com/divin), see [Evolution](https://github.com/divin/Evolution), as this example is part of a small project I'm working on.
 
 {:refdef: style="text-align: center;"}
-[Play Map Generation Example on Itch.io](https://divinism.itch.io/evolution)
+[Play Map Generation Example on Itch.io](https://divinism.itch.io/herbivores-carnivores-example)
 {: refdef}
